@@ -3,7 +3,7 @@
     <name>Thumba</name>
     <description>Thumba ERP Microfinance</description>
     <author email="info@thumba.org" href="https://cordova.apache.org">
-        Thumba Development
+        Thumba 
     </author>
     <content src="index.html" />
     <allow-intent href="http://*/*" />
