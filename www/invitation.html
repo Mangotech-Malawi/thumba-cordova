@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thumba | Register</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+  <link rel="stylesheet" href="plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" />
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" />
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css" />
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" />
+  <link rel="stylesheet" href="plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css" />
+  <link rel="stylesheet" href="plugins/bs-stepper/css/bs-stepper.min.css" />
+  <link rel="stylesheet" href="plugins/dropzone/min/dropzone.min.css" />
+  <link rel="stylesheet" href="dist/css/adminlte.min.css" />
+  <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" />
+  <link rel="stylesheet" href="plugins/toastr/toastr.min.css" />
+  <link rel="stylesheet" href="dist/css/login.css" />
+
+  <style>
+    .login-box {
+      width: 500px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .step-trigger {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body >
+
+  <div class="login-box">
+    <div class="card">
+      <div class="card-body login-card-body">
+        <h2 class="text-center h2">
+          <img src="dist/img/thumba.png" style="width: 60px; height: 60px;" />
+          <b>Thumba</b>
+        </h2>
+        <p class="text-center">Register and accept invitation</p>
+
+        <div id="invalidCredentials" class="text-danger text-center"></div>
+
+        <!-- Stepper Starts -->
+        <div id="stepper" class="bs-stepper">
+          <div class="bs-stepper-header" role="tablist">
+            <div class="step" data-target="#step-1">
+              <button type="button" class="step-trigger" role="tab" aria-controls="step-1" id="stepper1trigger1">
+                <span class="bs-stepper-circle">1</span>
+                <span class="bs-stepper-label">Personal</span>
+              </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#step-2">
+              <button type="button" class="step-trigger" role="tab" aria-controls="step-2" id="stepper1trigger2">
+                <span class="bs-stepper-circle">2</span>
+                <span class="bs-stepper-label">Account</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="bs-stepper-content">
+            <!-- Step 1 -->
+            <div id="step-1" class="content" role="tabpanel" aria-labelledby="stepper1trigger1">
+              <div class="input-group mb-1">
+                <input type="text" id="firstname" class="form-control" placeholder="First Name" />
+                <div class="input-group-append">
+                  <div class="input-group-text"><span class="fas fa-user"></span></div>
+                </div>
+              </div>
+
+              <div class="input-group mb-1">
+                <input type="text" id="lastname" class="form-control" placeholder="Last Name" />
+                <div class="input-group-append">
+                  <div class="input-group-text"><span class="fas fa-user"></span></div>
+                </div>
+              </div>
+
+              <div class="input-group mb-1">
+                <select id="identifierType" name="IdentifierType" class="form-control select2"
+                  data-placeholder="Select Identification Type" style="height: 40px; width: 100%;">
+                
+                </select>
+              </div>
+
+              <div class="input-group mb-1">
+                <input type="text" id="identifier" class="form-control" placeholder="Identifier" />
+                <div class="input-group-append">
+                  <div class="input-group-text"><span class="fas fa-id-card"></span></div>
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-block" onclick="stepper.next()">Next</button>
+            </div>
+
+            <!-- Step 2 -->
+            <div id="step-2" class="content" role="tabpanel" aria-labelledby="stepper1trigger2">
+              <div class="input-group mb-1">
+                <input type="text" id="username" class="form-control" placeholder="Username" />
+                <div class="input-group-append">
+                  <div class="input-group-text"><span class="fas fa-user"></span></div>
+                </div>
+              </div>
+
+              <div class="input-group mb-1">
+                <input type="password" id="password" class="form-control" placeholder="Password" />
+                <div class="input-group-append">
+                  <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                </div>
+              </div>
+
+              <div class="input-group mb-1">
+                <input type="password" id="confirmPassword" class="form-control" placeholder="Retype password" />
+                <div class="input-group-append">
+                  <div class="input-group-text"><span class="fas fa-lock"></span></div>
+                </div>
+              </div>
+
+              <label id="wrongPassword" class="text-danger"></label>
+
+              <a href="#" id="acceptInvitationBtn" class="btn btn-block btn-success">
+                <i class="fab mr-2"></i> Accept Invitation
+              </a>
+              <button class="btn btn-secondary btn-block mt-2" onclick="stepper.previous()">Back</button>
+            </div>
+          </div>
+        </div>
+        <!-- Stepper Ends -->
+      </div>
+    </div>
+
+    <div class="card mt-1">
+      <div class="card-body login-card-body text-center">
+        <h5 class="login-box-msg">Already registered?</h5>
+        <a href="index.html">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="plugins/select2/js/select2.full.min.js"></script>
+  <script src="plugins/bs-stepper/js/bs-stepper.min.js"></script>
+  <script src="plugins/toastr/toastr.min.js"></script>
+  <script src="dist/js/adminlte.min.js" defer></script>
+  <script defer src="dist/js/modernizr.2.7.1.js"></script>
+  <script type="module" src="js/actions/user_management.js"></script>
+  <script type="module" src="js/services/users.js"></script>
+  <script type="module" src="js/actions/login.js"></script>
+  <script type="module" src="js/services/validator.js"></script>
+  <script type="module" src="js/services/config.js"></script>
+  <script type="module" src="js/actions/account.js"></script>
+
+  <script>
+    $(function () {
+      $('#identifierType').select2();
+    });
+
+    let stepper;
+    document.addEventListener("DOMContentLoaded", function () {
+      stepper = new window.Stepper(document.querySelector('#stepper'));
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thumba - Select Branch</title>
+
+  <script>
+    if (sessionStorage.getItem("token") === null) {
+      window.location = "index.html";
+    }
+  </script>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css" />
+  <!-- Toastr -->
+  <link rel="stylesheet" href="plugins/toastr/toastr.min.css" />
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css" />
+  <link rel="stylesheet" href="dist/css/custom.css" />
+
+  <style>
+    .branch-card {
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .branch-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .branch-card.selected {
+      border: 2px solid #007bff;
+      background-color: rgba(0, 123, 255, 0.1);
+    }
+
+    .branch-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      background: rgba(189, 189, 189, 0.8) url("dist/img/loader.gif") center no-repeat;
+    }
+
+    body.loading {
+      overflow: hidden;
+    }
+
+    body.loading .overlay {
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="hold-transition">
+  <div class="overlay"></div>
+  <div class="wrapper">
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__wobble" src="dist/img/thumba.png" alt="ThumbLogo" height="60" width="60" />
+    </div>
+
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <!-- User welcome card -->
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="dist/img/thumba.png" alt="Thumba Logo" style="width: 80px; height: 80px;" class="mb-3">
+              <h3>Welcome to Thumba, <span id="userName" class="text-primary font-weight-bold"></span>!</h3>
+              <p class="lead">Please select a branch to continue to the system</p>
+            </div>
+          </div>
+
+          <!-- Branch selection card -->
+          <div class="card">
+           
+            <div class="card-body">
+              <!-- Search field -->
+              <div class="row mb-4">
+                <div class="col-md-6 offset-md-3">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input type="text" id="branchSearch" class="form-control" placeholder="Search branches...">
+                    <div class="input-group-append">
+                      <button id="clearSearch" class="btn btn-outline-secondary" type="button">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <small class="form-text text-muted text-center">
+                    <span id="branchCount">0</span> branches available. Showing <span id="visibleBranchCount">0</span>.
+                  </small>
+                </div>
+              </div>
+
+              <div id="branchesContainer" class="row">
+                <!-- Branch cards will be dynamically inserted here -->
+                <div class="col-12 text-center py-5">
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <p class="mt-2">Loading branches...</p>
+                </div>
+              </div>
+
+              <div class="text-center mt-4">
+                <button id="continueBtn" class="btn btn-primary btn-lg" disabled>
+                  Continue to Dashboard <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+                <button id="logoutBtn" class="btn btn-outline-secondary ml-2">
+                  <i class="fas fa-sign-out-alt mr-1"></i> Logout
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Help card -->
+          <div class="card mt-4">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="mr-3">
+                  <i class="fas fa-info-circle text-info" style="font-size: 2rem;"></i>
+                </div>
+                <div>
+                  <h5 class="mb-1">Need Help?</h5>
+                  <p class="mb-0">If you don't see your branch or have any issues, please contact your system administrator.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.min.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+  <!-- Toastr -->
+  <script src="plugins/toastr/toastr.min.js"></script>
+  <script src="dist/js/modernizr.2.7.1.js"></script>
+  <script src="js/services/api-client.js" type="module"></script>
+  <script src="js/actions/branch_selection.js" type="module"></script>
+</body>
+
+</html>

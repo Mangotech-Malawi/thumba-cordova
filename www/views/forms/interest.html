@@ -1,0 +1,200 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header bg-gradient-primary">
+            <h3 id="formTitle" class="card-title font-weight-bold">
+                <i class="nav-icon fas fa-piggy-bank  "></i>Add Loan Product
+            </h3>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+                    <button type="button" class="btn btn-outline-light text-left" id="loanProductBackBtn"
+                        data-client-type="individual">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="content">
+                <form id="loanProductForm">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <div class="input-group ">
+                                <input id="interestId" type="hidden" class="form-control">
+                            </div>
+    
+                            <div class="form-group ">
+                                <label>Name</label>
+                                <div class="input-group ">
+                                    <input id="name" type="text" class="form-control" placeholder="Name">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-coins"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <div class="form-group ">
+                                <label>Period</label>
+                                <div class="input-group ">
+                                    <input id="period" type="text" class="form-control" placeholder="Period">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-calendar"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <div class="form-group ">
+                                <label>Loan Term Type</label>
+                                <div class="select2-primary">
+                                    <select id="loanTermType" class="form-control"
+                                        data-placeholder="Select loan term type   "
+                                        data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                        <option value="years">Years</option>
+                                        <option value="months">Months</option>
+                                        <option value="weeks">Weeks</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                            <div class="form-group ">
+                                <label>Max Amount (MwK)</label>
+                                <div class="input-group ">
+                                    <input id="max" type="text" class="form-control" placeholder="Max">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-money-bill-alt"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                            <div class="form-group ">
+                                <label>Min Amount (MwK)</label>
+                                <div class="input-group ">
+                                    <input id="min" type="text" class="form-control" placeholder="Min">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-money-bill-alt"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <div class="form-group ">
+                                <label>Accumulation Amount</label>
+                                <div class="input-group ">
+                                    <input id="accumAmount" type="text" class="form-control" placeholder="Accum Amount">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-money-bill-alt"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                        <div class="col-lg-6 col-md-12 col-sm-12 mb-3">
+                            <div class="form-group ">
+                                <label>Rate Type</label>
+                                <div class="select2-primary">
+                                    <select id="rateType" class="form-control" data-placeholder="Select rate type   "
+                                        data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                        <option value="annual" selected="true">Annual</option>
+                                        <option value="semi-annually">Semi-Annually</option>
+                                        <option value="quarterly">Quarterly</option>
+                                        <option value="monthly">Monthly</option>
+                                        <option value="weekly">Weekly</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-6 col-md-6 col-sm-6 mb-3">
+                            <div class="form-group ">
+                                <label>Rate (%)</label>
+                                <div class="input-group ">
+                                    <input id="rate" type="text" class="form-control" placeholder="Rate">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-percent"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-6 col-md-6 col-sm-6 mb-3">
+                            <div class="form-group ">
+                                <label>Compounding Frequency</label>
+                                <div class="input-group ">
+                                    <input id="compoundingFrequency" type="text" class="form-control"
+                                        placeholder="Compounding Frequency">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-percent"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                        <div class="col-lg-6 col-md-6 col-sm-6 mb-3">
+    
+                            <div class="form-group ">
+                                <label>Grace Period (Weeks)</label>
+                                <div class="input-group ">
+                                    <input id="gracePeriod" type="text" class="form-control" placeholder="Grace Period">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-calendar"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                            <div class="form-group ">
+                                <label>Accumulation Period (Days)</label>
+                                <div class="input-group">
+                                    <input id="accumDays" type="text" class="form-control" placeholder="Accum Days">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-calendar"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-default alt-btn">Close</button>
+            <button type="button" id="saveInterestBtn" class="btn btn-primary text-left">Save</button>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+<script>
+    $("#loanTermType").select2();
+    $("#rateType").select2();
+</script>
