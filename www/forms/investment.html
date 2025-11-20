@@ -1,0 +1,114 @@
+<div class="container-fluid">
+  <!-- Investment Onboarding Card -->
+  <div class="card  shadow-lg">
+    <div class="card-header bg-gradient-primary">
+      <h3 id="formTitle" class="card-title font-weight-bold">
+        <i class="nav-icon fas fa-piggy-bank"></i>Add Investment Subscription
+      </h3>
+      <div class="card-tools">
+        <button type="button" class="btn btn-outline-light" id="recordBackBtn" data-client-type="individual">
+          <i class="fa fa-arrow-left"></i> Back
+        </button>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <form id="investmentForm">
+        <div class="row">
+          <!-- Hidden Input for Investment ID -->
+          <input id="investmentId" type="hidden" class="form-control">
+  
+          <!-- Investment Package Selection -->
+          <div class="col-lg-6 col-md-12 mb-3">
+            <div class="card card-secondary">
+              <div class="card-header">
+                <h3 class="card-title font-weight-bold">
+                  <i class="nav-icon fas fa-box"></i> Investment Package
+                </h3>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="investmentPackageId">Investment Packages</label>
+                  <select id="investmentPackageId" name="investmentPackage" class="form-control select2-primary"
+                    data-placeholder="Select Investment Package" style="width: 100%;">
+                    <!-- Options dynamically loaded -->
+                  </select>
+                </div>
+  
+                <!-- Package Details -->
+                <div id="investmentPackageDetails" class="mt-3" style="display: none;">
+               
+                  <ul class="list-group ">
+                    <li class="list-group-item"><strong>Min Amount:</strong> <span id="minAmount">-</span></li>
+                    <li class="list-group-item"><strong>Max Amount:</strong> <span id="maxAmount">-</span></li>
+                    <li class="list-group-item"><strong>Interest Rate:</strong> <span id="interestRate">-</span></li>
+                    <li class="list-group-item"><strong>Interest Frequency:</strong> <span id="interestFrequency">-</span></li>
+                    <li class="list-group-item"><strong>Duration:</strong> <span id="duration">-</span></li>
+                    <li class="list-group-item"><strong>Compounding Frequency:</strong> <span id="compoundingFrequency">-</span></li>
+                    <li class="list-group-item"><strong>Currency:</strong> <span id="currency">-</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Onboarding Investment -->
+          <div class="col-lg-6 col-md-12 mb-3">
+            <div class="card card-secondary">
+              <div class="card-header">
+                <h3 class="card-title font-weight-bold">
+                  <i class="nav-icon fas fa-hand-holding-usd"></i> Investment
+                </h3>
+              </div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="amount">Amount</label>
+                  <div class="input-group">
+                    <input id="amount" type="text" class="form-control" placeholder="Enter amount">
+                    <div class="input-group-append">
+                      <span class="input-group-text"><i class="fas fa-coins"></i></span>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <label for="investmentDate">Investment Date</label>
+                  <div class="input-group date" id="investmentDatePicker" data-target-input="nearest">
+                    <input type="text" id="investmentDate" class="form-control datetimepicker-input"
+                      data-target="#investmentDatePicker" placeholder="Select date">
+                    <div class="input-group-append" data-target="#investmentDatePicker" data-toggle="datetimepicker">
+                      <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+   
+    </div>
+
+    <!-- Footer Buttons -->
+    <div class="card-footer text-right">
+      <button type="button" class="btn btn-danger">Close</button>
+      <button type="button" id="investmentBtn" class="btn btn-success">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    // Initialize Select2
+    $('#investmentPackageId').select2({
+      theme: 'bootstrap4',
+      placeholder: 'Select Investment Package',
+    });
+
+    $("#investmentDatePicker").datetimepicker({
+        format: "L",
+    });
+
+  
+  });
+</script>

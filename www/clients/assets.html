@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <div class="card">
+      <div class="card-header bg-gradient-primary">
+        <h3 id="recordName" class="card-title">Asset Registration</h3>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+            <!-- Button for calling add organisation modal -->
+  
+            <button
+              type="button"
+              class="btn btn bg-gradient-success text-left"
+              id="assetFormBtn"
+              data-form-type="asset"
+              data-action-type="add"
+            >
+              <i class="fa fa-plus-square"></i> New Asset
+            </button>
+  
+            <button
+              type="button"
+              class="btn bg-gradient-secondary text-left"
+              id="recordBackBtn"
+              data-client-type="individual"
+            >
+              <i class="fa fa-arrow-left"></i> Back
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <table id="assetsTable" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Identifier</th>
+              <th>ID Type</th>
+              <th>Name</th>
+              <th>Purchased Date</th>
+              <th>Purchased Price</th>
+              <th>Market Value</th>
+              <th>Description</th>
+              <th>EDIT</th>
+              <th>DELETE</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <th>Id</th>
+              <th>Identifier</th>
+              <th>ID Type</th>
+              <th>Name</th>
+              <th>Purchased Date</th>
+              <th>Purchased Price</th>
+              <th>Market Value</th>
+              <th>Description</th>
+              <th>EDIT</th>
+              <th>DELETE</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+  

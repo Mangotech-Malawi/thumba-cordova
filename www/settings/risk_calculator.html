@@ -1,0 +1,195 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header bg-gradient-primary">
+            <h3 class="card-title">Loan Risk Calculator</h3>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+                    <!-- Button for calling add organisation modal -->
+      
+                    <button type="button" class="btn btn bg-gradient-primary text-left"  data-form-type="job"
+                    id="saveLoanAnalysisBtn" >
+                        <i class="fa fa-file"></i> Save Analysis
+                    </button>
+
+                    <button type="button" class="btn btn bg-gradient-success text-left"  data-form-type="job"
+                    id="newApplicationBackBtn" >
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div id="manualScores" class="col-sm-12 col-lg-4 col-md-4 ">
+                  <div class="card h-100">
+                    <div class="card-header">
+                      <h4 id="sharesContributionTitle" class="card-title">
+                        <i class="fas fa-chart-pie mr-1"></i>
+                        Composite
+                      </h4>
+      
+                      <div class="card-tools">
+      
+                      </div>
+                    </div>
+      
+                    <div class="card-body">
+                      <div class="row">
+                        <div  class="col-lg-12 col-md-12 col-sm-12 ">
+                          
+                          <div class="progress-group">
+                            Composite Score
+                            <span id="manual-score-ratio" class="float-right font-weight-bold"></span>
+                            <div class="progress progress-xl">
+                              <div id="manual-score-progress-bar" 
+                              class="progress-bar bg-primary"  ></div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 ">
+                          <!--<div id="scores-checkbox-row" class="row">
+      
+                          </div>-->
+
+                          <ul id="scores-checkbox-row" class="todo-list" data-widget="todo-list">
+                         
+                          </ul>
+
+
+                        </div>
+                      </div>
+      
+                    </div>
+      
+                    <div class="card-footer p-2">
+      
+                    </div>
+      
+      
+                    <!-- /.card-body -->
+                  </div>
+                </div>
+      
+                <div id="manualScores" class="col-sm-12 col-lg-4 col-md-4 ">
+                  <div class="card h-100">
+                    <div class="card-header">
+                      <h4 id="sharesContributionTitle" class="card-title">
+                        <i class="fas fa-chart-pie mr-1"></i>
+                        Debt to Income
+                      </h4>
+                    </div>
+                    <div class="card-body ">
+                      <div class="row">
+                        <div  class="col-lg-12 col-md-12 col-sm-12">
+                          <div class="progress-group">
+                            Debt to Income score
+                            <span class="analysis-score float-right font-weight-bold "></span>
+                            <div class="progress progress-xl">
+                              <div id="automatic-score-progress-bar"  class="progress-bar bg-success"
+                               ></div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr />
+                      
+                          <table  class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Value</th>
+                                  
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td> Available Score</td>
+                                <td><span  class="available-score font-weight-bold h5"></span></td>
+                              </tr>
+                              <tr>
+                                <td> Score </td>
+                                <td class="h3"><span  class="analysis-score font-weight-bold  h5"></span></td>
+                              </tr>
+                              <tr>
+                                <td>Score Percentage</td>
+                                <td><span id="analysis-score-percentage" class="h5 font-weight-bold "></span></td>
+                              </tr>
+                              <tr>
+                                <td>Installment Amount</td>
+                                <td><span id="installment-amount" class="h5 font-weight-bold "></span></td>
+                              </tr>
+                              <tr>
+                                <td>Total Monthly Salary</td>
+                                <td><span id="monthly-salary" class="h5 font-weight-bold "></span></td>
+                              </tr>
+                              <tr>
+                                <td>Total Dependants Expense</td>
+                                <td><span id="dependants-expense" class="h5 font-weight-bold "></span></td>
+                              </tr>
+                              <tr>
+                                <td>Total Monthly Debts</td>
+                                <td><span id="monthly-otherloans" class="h5 font-weight-bold "></span></td>
+                              </tr>   
+                              <tr>
+                                <td>Monthly Business Profits</td>
+                                <td><span id="business-profits" class="h5 font-weight-bold "></span></td>
+                              </tr>                             
+                            </tbody>
+                            
+                        </table>
+                    
+                      </div>
+                    </div>
+      
+      
+      
+                    <div class="card-footer p-0">
+                      
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+                </div>
+                <div id="manualScores" class="col-sm-12 col-lg-4 col-md-4 ">
+      
+                  <div class="card h-100 ">
+                    <div class="card-header ">
+                      <h4 id="sharesContributionTitle" class="card-title">
+                        <i class="fas fa-chart-pie mr-1"></i>
+                        Risk Analysis Result
+                      </h4>
+      
+                      <div class="card-tools">
+                        <ul class="nav nav-pills ml-auto">
+      
+                        </ul>
+                      </div>
+                    </div>
+      
+                    <div class="card-body col  ">
+                      <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 justify-content-center">
+                          <div id="risk-result-chart">
+                          </div>
+                          <p class="text-center  h2">Grade</p>
+                          <p class="text-center h2 font-weight-bold " id="loan-risk-grade-range"> %</p>
+
+                          <p class="text-center  h2">Score</p>
+                          <p  id="loan-risk-grade" class="text-center font-weight-bold h5"></p>
+
+                         
+                        </div>
+                        
+                      </div>
+                    </div>
+      
+                    <div class="card-footer p-2 ">
+      
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+                </div>
+      
+              </div>
+        </div>
+    </div>
+</div>

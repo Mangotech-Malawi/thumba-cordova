@@ -1,0 +1,326 @@
+<div class="modal fade" id="modal-analysis-score">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form id="addUser" action="" method="post"></form>
+      <div class="modal-header">
+        <h4 id="scoreModalTitle" class="modal-title">Edit Score</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="content">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+              <div class="input-group ">
+                <input id="scoreId" type="hidden" class="form-control">
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Score Name:</label>
+
+                <div class="select2-primary">
+                  <select id="scoreName" name="scoreNames[]" class="form-control  scoreNames" data-placeholder=" Select
+                    Interest" data-dropdown-css-class="select2-primary" style="width: 100%;">
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Score</label>
+                <div class="input-group ">
+                  <input id="score" type="text" class="form-control" placeholder="Score">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-coins"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default alt-btn" data-dismiss="modal">Close</button>
+        <button type="button" id="saveScoreBtn" class="btn btn-primary">Save</button>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade " id="modal-del-score">
+  <div class="modal-dialog modal-lg ">
+    <div class="modal-content">
+      <form id="addUser" action="" method="post"></form>
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Score</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <input id="scoreDelId" type="hidden" class="form-control">
+        </div>
+
+        <p id="del-user-message">Are you sure you want to score</p>
+
+      </div>
+
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" id="delScoreBtn" class="btn btn-success">Yes</button>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
+
+<div class="modal fade" id="modal-analysis-grade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form id="gradeForm" action="" method="post"></form>
+      <div class="modal-header">
+        <h4 id="gradesModalTitle" class="modal-title">Add Grade</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="content">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+              <div class="input-group ">
+                <input id="gradeId" type="hidden" class="form-control">
+              </div>
+
+              <div class="form-group ">
+                <label>Name</label>
+                <div class="input-group ">
+                  <input id="name" type="text" class="form-control" placeholder="Name">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-coins"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Minimum</label>
+                <div class="input-group ">
+                  <input id="minimum" type="text" class="form-control" placeholder="Minimum">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-coins"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-6 col-sm-12 mb-3">
+              <div class="form-group">
+                <label>Maximum</label>
+                <div class="input-group">
+                  <input id="maximum" type="text" class="form-control" placeholder="maximum">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-coins"></span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default alt-btn" data-dismiss="modal">Close</button>
+        <button type="button" id="saveGradeBtn" class="btn btn-primary">Save</button>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal-dti-ratios">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form id="dtiRatioForm" action="" method="post">
+        <div class="modal-header">
+          <h4 id="dtiRatioModalTitle" class="modal-title">Add DTI Ratio</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="content">
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                <div class="input-group ">
+                  <input id="dtiRatioId" type="hidden" class="form-control">
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                  <div class="form-group ">
+                    <label>DTI Score Name:</label>
+
+                    <div class="select2-primary">
+                      <select id="dtiScoreNames" name="dtiScoreNames[]" class="form-control  dtiScoreNames"
+                        data-placeholder="
+                      Select DTI Score Name" data-dropdown-css-class="select2-primary" style="width: 100%;">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                  <div class="form-group ">
+                    <label>Min Ratio(percentages %)</label>
+                    <div class="input-group ">
+                      <input id="minRatio" type="text" class="form-control"
+                        placeholder="Enter minimum ratio as a percentage">
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <span class="fas fa-coins"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-6 col-sm-12 mb-3">
+                  <div class="form-group">
+                    <label>Max Ratio (percentages %)</label>
+                    <div class="input-group">
+                      <input id="maxRatio" type="text" class="form-control"
+                        placeholder="Enter maximum ratio as a percentage">
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <span class="fas fa-coins"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default alt-btn" data-dismiss="modal">Close</button>
+            <button type="button" id="saveDtiRatioBtn" class="btn btn-primary">Save</button>
+          </div>
+
+        </div>
+        <!-- /.modal-content -->
+      </form>
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+</div>
+
+
+<div class="modal fade" id="modal-analysis-score-name">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form id="gradeForm" action="" method="post"></form>
+      <div class="modal-header">
+        <h4 id="scoreNameModalTitle" class="modal-title">Add Score Name</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="content">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+              <div class="input-group ">
+                <input id="scoreNameId" type="hidden" class="form-control">
+              </div>
+
+              <div class="form-group ">
+                <label>Score Short Code</label>
+                <div class="input-group ">
+                  <input id="scoreCode" type="text" class="form-control" placeholder="Score Short Code">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-coins"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Score Type</label>
+
+                <div class="select2-primary">
+                  <select id="scoreType" class="form-control" data-placeholder="Select score type"
+                    data-dropdown-css-class="select2-primary" style="width: 100%;">
+                    <option value="DTI">Debt To Income Ratio</option>
+                    <option value="composite">Composite</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+              <div class="form-group">
+                <label>Description/Name</label>
+                <div class="input-group">
+                  <textarea id="scoreDescription" type="text" class="form-control"
+                    placeholder="Description or Name"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default alt-btn" data-dismiss="modal">Close</button>
+        <button type="button" id="saveScoreNameBtn" class="btn btn-primary">Save</button>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<script>
+  $('#scoreType').select2();
+  $('#scoreName').select2();
+  $('#dtiScoreNames').select2();
+</script>
