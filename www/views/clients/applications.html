@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header bg-gradient-primary">
+            <h3 id="recordName" class="card-title">Loan Applications</h3>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+                    <!-- Button for calling add organisation modal -->
+
+                    <button type="button" class="btn btn bg-gradient-success text-left" id="clientLoanApplication"
+                        data-form-type="application" data-action-type="add">
+                        <i class="fa fa-plus-square"></i> New Application
+                    </button>
+
+                    <button type="button" class="btn bg-gradient-secondary text-left" id="recordBackBtn"
+                        data-client-type="individual">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <table id="clientLoanApplicationsTable" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Package</th>
+                        <th>Rate (%)</th>
+                        <th>Amount (Mwk)</th>
+                        <th>Status</th>
+                        <th>EDIT</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <th>ID</th>
+                    <th>Package</th>
+                    <th>Rate (%)</th>
+                    <th>Amount (Mwk)</th>
+                    <th>Status</th>
+                    <th>EDIT</th>
+                    <th>DELETE</th>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

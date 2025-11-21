@@ -1,0 +1,204 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom, #41475b 50%, #f4f4f4 50%);
+    min-height: 100vh; /* Ensures it covers the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents unwanted scrollbars */
+}
+
+
+
+.login-title {
+    font-size: 1.3em;
+    font-family: sans-serif;
+    color: #fff;
+}
+
+.login-box-msg {
+    color: #000;
+}
+
+/* Background styling */
+body {
+    background: linear-gradient(to bottom, #41475b 50%, #f4f4f4 50%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container and form styling */
+.login-box {
+    width: 600px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.login-card-body {
+    padding: 30px;
+}
+
+.login-card-body h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-card-body p {
+    text-align: center;
+    color: #555;
+}
+
+
+.btn-primary {
+    width: 100%;
+}
+
+.social-auth-links {
+    text-align: center;
+}
+
+/* Adjustments for mobile view */
+@media (max-width: 768px) {
+    .login-box {
+        width: 100%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+/* Step visibility */
+.form-step {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.form-step.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Button styles */
+button {
+    width: 100%;
+}
+
+/* Step navigation transitions */
+.form-step {
+    position: relative;
+}
+
+#nextStep1,
+#nextStep2,
+#prevStep2,
+#prevStep3,
+#registerBtn {
+    margin-top: 20px;
+}
+
+#passwordError {
+    margin-top: 10px;
+}
+
+/* Styling error message */
+#passwordError {
+    color: red;
+    font-size: 0.875rem;
+}
+
+.step-tracker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    position: relative;
+}
+
+.step i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.step-number {
+    font-size: 16px;
+    font-weight: bold;
+    background: #ccc;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+.step-label {
+    margin-top: 5px;
+}
+
+.step-line {
+    flex-grow: 1;
+    height: 3px;
+    background: #ccc;
+    position: relative;
+    top: -15px;
+    z-index: 1;
+}
+
+/* Active Step */
+.step.active {
+    color: #28a745;
+}
+
+.step.active .step-number {
+    background: #28a745;
+}
+
+/* Completed Steps */
+.step.completed .step-number {
+    background: #28a745;
+}
+
+.step.completed+.step-line {
+    background: #28a745;
+}
+
+.container {
+    text-align: center;
+    /* Centers inline elements like <a> */
+}
+
+/* Adjustments for mobile view */
+@media (max-width: 768px) {
+    .login-box {
+        width: 100%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .step-tracker{
+        display: none;
+    }
+}

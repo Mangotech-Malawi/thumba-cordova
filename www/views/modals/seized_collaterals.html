@@ -1,0 +1,138 @@
+<div class="modal fade" id="modal-sell-collateral">
+    <div class="modal-dialog  modal-dialog-centered modal-xl">
+        <div class="modal-content  ">
+            <form id="addPaymentForm" action="" method="post"></form>
+            <div class="modal-header">
+                <h4 id="collateralSaleModalTitle" class="modal-title">Sell Seized Collateral</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="content">
+
+                    <div class="card card-widget widget-user">
+                        <!-- Add the bg color to the header using any of the bg-* classes -->
+
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-sm-4 border-right">
+                                    <div class="description-block">
+                                        <h5 id="identifier" class="description-header"></h5>
+                                        <span class="description-text">IDENTIFIER</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 border-right">
+
+                                    <div class="description-block">
+                                        <h5 id="identifierType" class="description-header"></h5>
+                                        <span class="description-text">IDENTIFIER TYPE</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-4 border-right">
+                                    <div class="description-block">
+                                        <h5 id="name" class="description-header"></h5>
+                                        <span class="description-text">NAME</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-sm-4">
+                                    <div class="description-block">
+                                        <h5 id="purchaseDate" class="description-header"></h5>
+                                        <span class="description-text">PURCHASED DATE</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+
+                                <div class="col-sm-4 border-right">
+                                    <div class="description-block">
+                                        <h5 id="purchasePrice" class="description-header"></h5>
+                                        <span class="description-text">PURCHASE PRICE</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+
+                                <div class="col-sm-4 border-right">
+                                    <div class="description-block">
+                                        <h5 id="marketValue" class="description-header"></h5>
+                                        <span class="description-text">MARKET VALUE</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+
+                                <div class="col-sm-4 border-right">
+                                    <div class="description-block">
+                                        <h5 id="seizedDate" class="description-header"></h5>
+                                        <span class="description-text">SEIZED DATE</span>
+                                    </div>
+                                    <!-- /.description-block -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+
+                            <div id="approve-collaterals" class="row mt-4">
+
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <input id="seizureId" type="hidden"  class="form-control">
+                        <input id="collateralSaleId" type="hidden"  class="form-control">
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                            <div class="form-group ">
+                                <label>Selling Price</label>
+                                <div class="input-group ">
+                                    <input id="sellingPrice" type="text" class="form-control"
+                                        placeholder="Selling Price">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-money-bill-alt"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 mb-3">
+                            <div class="form-group">
+                                <label>Sold Date</label>
+                                <div class="input-group date" id="soldDatePicker" data-target-input="nearest">
+                                    <input type="text" id="soldDate" class="form-control datetimepicker-input"
+                                        data-target="#soldDatePicker" placeholder="Selling Price" />
+                                    <div class="input-group-append" data-target="#soldDatePicker"
+                                        data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default alt-btn" data-dismiss="modal">Close</button>
+                <button id="sellCollateralBtn" type="button" class="btn btn-primary alt-btn">Save</button>
+            </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<script>
+    $("#soldDatePicker").datetimepicker({
+        format: "L",
+    });
+
+</script>

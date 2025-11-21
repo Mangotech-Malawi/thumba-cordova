@@ -1,0 +1,219 @@
+<div class="container-fluid">
+    <div class="card ">
+        <div class="card-header bg-gradient-primary">
+            <h3 id="cardTitle" class="card-title font-weight-bold"> <i class="nav-icon fas fa-piggy-bank  ">  
+            </i>Add Shareholder</h3>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+
+
+                    <button type="button" class="btn btn-outline-light text-left" id="clientsBackBtn"
+                        data-client-type="individual">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body card-theme">
+            <div class="container mt-3">
+
+                <div class="card  card-secondary">
+
+                    <div class=" card-body">
+                        <form id="shareholderForm">
+                            <input id="shareholderId" type="hidden" class="form-control">
+                            <!-- Step 1: Personal Identification -->
+                            <div id="step1" class="step active">
+                                <h4 class="mb-4 ">Personal Identification</h4>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12 col-sm-12  mb-1">
+                                        <div class="form-group">
+                                            <label>Identifier</label>
+                                            <div class="input-group">
+                                                <input id="identifier" type="text" name="identifier"
+                                                    class="form-control" placeholder="Person Identifier">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-card"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12  mb-1">
+                                        <div class="form-group">
+                                            <label>Identifier Type</label>
+                                            <div class="input-group">
+                                                <select id="identifierType" name="IdentifierType" class="form-control"
+                                                    data-placeholder="Select Identification Type">
+                                                    <option value="">Select Type</option>
+                                                    <option value="national_id">National ID</option>
+                                                    <option value="passport">Passport</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12  mb-1">
+                                        <div class="form-group">
+                                            <label>Firstname:</label>
+                                            <div class="input-group">
+                                                <input id="firstname" type="text" class="form-control"
+                                                    placeholder="Firstname">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-users"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 mb-1">
+                                        <div class="form-group">
+                                            <label>Lastname:</label>
+                                            <div class="input-group">
+                                                <input id="lastname" type="text" name="lastname" class="form-control"
+                                                    placeholder="Lastname">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-users"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-12 col-sm-12 mb-1">
+                                        <div class="form-group">
+                                            <label>Email Address:</label>
+                                            <div class="input-group">
+                                                <input id="emailAddress" type="email" name="emailAddress"
+                                                    class="form-control" placeholder="Email address">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-mail"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-12 col-sm-12 mb-1">
+                                        <div class="form-group">
+                                            <label>Phone Number:</label>
+                                            <div class="input-group">
+                                                <input id="phoneNumber" type="text" name="phoneNumber"
+                                                    class="form-control" placeholder="Phone Number">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">
+                                                        <span class="fas fa-mail"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-12 col-sm-12  mb-1 ">
+                                        <div class="form-group">
+                                            <label>Gender:</label>
+                                            <select id="gender" name="gender" style="width: 100%;"
+                                                class="form-control ml-2">
+                                                <option value="">Select Gender</option>
+                                                <option value="M">Male</option>
+                                                <option value="F">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12  mb-1">
+                                        <div class="form-group">
+                                            <label>Date Of Birth:</label>
+                                            <div class="input-group date" id="dateOfBirthPicker"
+                                                data-target-input="nearest">
+                                                <input type="text" id="dateOfBirth"
+                                                    class="form-control datetimepicker-input"
+                                                    data-target="#dateOfBirthPicker" />
+                                                <div class="input-group-append" data-target="#dateOfBirthPicker"
+                                                    data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="btn-navigation">
+                                    <button type="button" id="saveShareholderBtn"
+                                        class="btn btn-success float-right">Save <i class="fas fa-save"></i></button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        // Initialize select2 dropdowns
+        //$('#gender, #homeDistrict, #currentDistrict, #nearestLandmark, #identifierType').select2();
+
+        $('#gender').select2();
+        $('#currentDistrict').select2();
+        $('#homeDistrict').select2();
+        $('#nearestLandmark').select2();
+        //Date picker
+        //$('').datetimepicker(  { icons: { time: 'far fa-clock' } });
+
+        $('.date').datetimepicker({
+            format: 'L'
+        });
+
+        $("#identifierType").select2();
+        // Initialize date picker
+        $('#dateOfBirthPicker').datetimepicker({
+            format: 'L',
+            maxDate: moment()
+        });
+
+        // Form submission
+        $('#registrationForm').on('submit', function (e) {
+            e.preventDefault();
+            // Add form submission logic here
+            alert('Form submitted successfully!');
+        });
+    });
+
+    function nextStep(currentStep) {
+        // Basic validation (you can enhance this)
+        if (validateStep(currentStep)) {
+            $(`#step${currentStep}`).removeClass('active');
+            $(`#step${currentStep + 1}`).addClass('active');
+        }
+    }
+
+    function prevStep(currentStep) {
+        $(`#step${currentStep}`).removeClass('active');
+        $(`#step${currentStep - 1}`).addClass('active');
+    }
+
+    function validateStep(step) {
+        // Simple validation example
+        let isValid = true;
+        $(`#step${step} input[required], #step${step} select[required]`).each(function () {
+            if (!$(this).val()) {
+                $(this).addClass('is-invalid');
+                isValid = false;
+            } else {
+                $(this).removeClass('is-invalid');
+            }
+        });
+        return isValid;
+    }
+
+
+</script>

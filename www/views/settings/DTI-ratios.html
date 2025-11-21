@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="card">
+      <div class="card-header bg-gradient-primary">
+        <h3 class="card-title">DTI Rations</h3>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+            <!-- Button for calling add organisation modal -->
+  
+            <button
+              type="button"
+              class="btn btn bg-gradient-success text-left"
+              id="newDTIRatioBtn"
+              data-toggle="modal"
+              data-target="#modal-dti-ratios"
+              data-form-type="dti-ratios"
+              data-action-type="add"
+            >
+              <i class="fa fa-plus-square"></i> New DTI Ratio
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <table id="dtiRatiosTable" class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>DTI Score Code</th>
+              <th>Description</th>
+              <th>Min Ratio (%)</th>
+              <th>Max Ratio (%)</th>
+              <th>EDIT</th>
+              <th>DELETE</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>DTI Score Code</th>
+                <th>Description</th>
+                <th>Min Ratio (%)</th>
+                <th>Max Ratio (%)</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
