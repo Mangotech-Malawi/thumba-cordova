@@ -1,0 +1,142 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header bg-gradient-primary">
+      <h3 class="card-title font-weight-bold"> 
+        <i class="nav-icon fas fa-user-tie mr-2"></i> Assign Arrear to Collector
+      </h3>
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool btn-sm" id="arrearBackBtn" title="Go Back">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <form id="assignArrearForm">
+        <input id="arrearId" type="hidden">
+        <input id="loanId" type="hidden">
+        
+        <!-- Arrear Details Section -->
+        <div class="mb-4">
+          <h5 class="mb-3 font-weight-bold">
+            <i class="fas fa-file-invoice-dollar text-info"></i> Arrear Information
+          </h5>
+          
+          <!-- Client Info -->
+          <div class="row mb-4">
+            <div class="col-lg-6 col-md-12">
+              <p class="mb-2">
+                <span class="text-muted">Client Name:</span>
+                <span class="h5 font-weight-bold d-block" id="clientName">-</span>
+              </p>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <p class="mb-2">
+                <span class="text-muted">Client ID:</span>
+                <span class="h5 font-weight-bold d-block" id="clientIdentifier">-</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Installment Details -->
+          <div class="row mb-4">
+            <div class="col-lg-3 col-md-6">
+              <p class="mb-2">
+                <span class="text-muted">Installment #:</span>
+                <span class="h5 font-weight-bold d-block" id="installmentNumber">-</span>
+              </p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <p class="mb-2">
+                <span class="text-muted">Amount Due:</span>
+                <span class="h5 font-weight-bold d-block" id="installmentAmount">-</span>
+              </p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <p class="mb-2">
+                <span class="text-muted">Days Overdue:</span>
+                <span class="h5 font-weight-bold text-danger d-block" id="daysOverdue">-</span>
+              </p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <p class="mb-2">
+                <span class="text-muted">Total Arrears:</span>
+                <span class="h5 font-weight-bold d-block" id="totalArrears">-</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Category & Status -->
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+              <p class="mb-2">
+                <span class="text-muted">Category:</span>
+                <br>
+                <span id="categoryBadge" class="badge badge-secondary">-</span>
+              </p>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <p class="mb-2">
+                <span class="text-muted">Status:</span>
+                <br>
+                <span id="statusBadge" class="badge badge-secondary">-</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-4">
+
+        <!-- Assignment Section -->
+        <div class="mb-4">
+          <h5 class="mb-3 font-weight-bold">
+            <i class="fas fa-tasks text-warning"></i> Assign Collector
+          </h5>
+          
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="font-weight-bold">Collector <span class="text-danger">*</span></label>
+                <select id="collectorId" class="form-control" required>
+                  <option value="">-- Select Collector --</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="font-weight-bold">Priority Level</label>
+                <select id="priority" class="form-control">
+                  <option value="normal">Normal</option>
+                  <option value="high">High</option>
+                  <option value="urgent">Urgent</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="font-weight-bold">Assignment Notes</label>
+            <textarea id="assignmentNotes" class="form-control" rows="3" placeholder="Add any notes about this assignment..."></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="card-footer">
+      <button type="button" class="btn btn-default" id="closeBtn">
+        <i class="fas fa-times"></i> Cancel
+      </button>
+      <button type="button" id="saveAssignmentBtn" class="btn btn-primary float-right">
+        <i class="fas fa-check"></i> Assign Collector
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#collectorId, #priority').select2({
+      minimumResultsForSearch: Infinity
+    });
+  });
+</script>
