@@ -1,0 +1,107 @@
+<div class="container-fluid">
+    <div class="card  ">
+        <div class="card-header bg-gradient-primary">
+            <h3 id="loanApplicationTitle" class="card-title font-weight-bold"> 
+                <i class="nav-icon fas fa-piggy-bank  "></i>Add Loan Application
+            </h3>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+                    <button type="button" class="btn btn-outline-light text-left" id="recordBackBtn"
+                        data-client-type="individual">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="content">
+
+                <form id="loanApplicationForm">
+                    <div class="row ">
+
+    
+  
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                            <div class="input-group ">
+                                <input id="id" type="hidden" name="id" class="form-control">
+                              </div>
+                          <div class="form-group ">
+                            <label>Amount:</label>
+                            <div class="input-group ">
+          
+                              <input id="amount" type="text" class="form-control" placeholder="Amount">
+                              <div class="input-group-append">
+                                <div class="input-group-text">
+                                  <span class="fas fa-users"></span>
+                                </div>
+                              </div>
+                            </div>
+          
+                          </div>
+                        </div>
+          
+                        <!--<div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+                                    <div class="form-group ">
+                                      <label>Application Date:</label>
+                                      <div class="input-group date" id="applicationDatePicker" data-target-input="nearest">
+                                        <input type="text" id="applicationDate" class="form-control datetimepicker-input" data-target="#applicationDatePicker"/>
+                                        <div class="input-group-append" data-target="#applicationDatePicker" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                  </div>-->
+          
+          
+          
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Loan Product:</label>
+          
+                            <div class="select2-primary">
+                              <select id="interestsRates" name="interests[]" class="form-control  interests"
+                                data-placeholder="Select Interest" data-dropdown-css-class="select2-primary" style="width: 100%;">
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+          
+          
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                          <div class="form-group">
+                            <label>Purpose</label>
+                            <div class="input-group">
+                              <textarea id="purpose" type="text" class="form-control"
+                                placeholder="Enter purpose of loan"></textarea>
+                            </div>
+                          </div>
+                        </div>
+          
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                          <div class="form-group">
+                            <label>Collaterals</label>
+                            <div class="select2-secondary">
+                              <select id="corraterals" class="collaterals" name="collaterals[]" multiple="multiple"
+                                data-placeholder="Select collateral" data-dropdown-css-class="select2-secondary"
+                                style="width: 100%"></select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </form>
+            </div>
+        
+
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-default alt-btn">Close</button>
+            <button type="button" id="saveApplicationBtn" class="btn btn-primary text-left">Save</button>
+        </div>
+        <!-- /.card -->
+    </div>
+    <script>
+        $('.collaterals').select2();
+        $('#interestsRates').select2();
+    </script>

@@ -1,0 +1,452 @@
+<style>
+    .form-check-input {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-top: 0.35rem;
+        cursor: pointer;
+    }
+
+    .form-select {
+        font-size: 1.4rem;
+        padding: 0.75rem 2.25rem 0.75rem 0.75rem;
+        height: auto;
+        min-height: 2.5rem;
+    }
+
+    .select2-container--default .select2-selection--single {
+        height: 2.5rem;
+        padding: 0.5rem;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .select2-dropdown .select2-results__option {
+        padding: 0.75rem;
+        font-size: 1.3rem;
+    }
+</style>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header bg-gradient-primary">
+            <h3 id="cardTitle" class="card-title font-weight-bold fs-2">
+                <i class="nav-icon fas fa-phone"></i> Recovery Attempt
+            </h3>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+                    <button type="button" class="btn btn-outline-light text-left" id="recoveryBackBtn">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body card-theme">
+            <div class="container mt-3">
+                <div class="card card-secondary">
+                    <div class="card-body">
+                        <form id="recoveryAttemptForm">
+                            <input id="recoveryCaseId" type="hidden" class="form-control">
+                            <input id="clientId" type="hidden" class="form-control">
+
+                            <!-- Step 1: Initial Contact -->
+                            <div id="step1" class="step active">
+                                <h4 class="mb-4 fs-4 fw-semibold">Initial Contact</h4>
+                                 <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Action Type:</label>
+                                            <select id="actionType" name="actionType" style="width: 100%;"
+                                                class="form-control fs-5 text-lg" required>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group mt-2">
+                                            <label class="fs-5 fw-semibold text-lg">Did you reach the client?</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input form-check" type="radio" id="clientReachedYes"
+                                                    name="clientReached" value="yes" required>
+                                                <label class="form-check-label fs-5 text-lg ml-2" for="clientReachedYes">Yes</label>
+                                            </div>
+                                            <div class="form-check mt-2">
+                                                <input class="form-check-input form-check" type="radio" id="clientReachedNo"
+                                                    name="clientReached" value="no" required>
+                                                <label class="form-check-label fs-5 text-lg ml-2" for="clientReachedNo">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-navigation text-right">
+                                    <button type="button" class="btn btn-primary btn-lg fs-5" onclick="nextStep(1)">Next <i
+                                            class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Client Not Reached -->
+                            <div id="step2" class="step d-none">
+                                <h4 class="mb-4 fs-4 fw-semibold">Why Client Was Not Reached</h4>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Reason for not reaching client:</label>
+                                            <select id="notReachedReason" name="notReachedReason" style="width: 100%;"
+                                                class="form-control fs-5 text-lg">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="otherReasonContainer" class="col-lg-12 col-md-12 col-sm-12 mb-3 d-none">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Please specify:</label>
+                                            <textarea id="otherReason" name="otherReason" class="form-control fs-5 text-lg" rows="3"
+                                                placeholder="Explain the reason..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Next step planned:</label>
+                                            <select id="nextStepPlanned" name="nextStepPlanned" style="width: 100%;"
+                                                class="nextAction form-control fs-5 text-lg">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Notes:</label>
+                                            <textarea id="notesClientNotReached" name="notes" class="form-control fs-5 text-lg"
+                                                rows="3" placeholder="Collector observations..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-navigation">
+                                    <button type="button" class="btn btn-secondary btn-lg fs-5" onclick="prevStep(2)"><i
+                                            class="fas fa-arrow-left"></i> Previous</button>
+                                    <button type="button" id="submitRecoveryForm"
+                                        class="btn btn-success btn-lg fs-5 float-right">Submit <i class="fas fa-save"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Default Reason -->
+                            <div id="step3" class="step d-none">
+                                <h4 class="mb-4 fs-4 fw-semibold">Default Reason</h4>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Why did the client default?</label>
+                                            <select id="defaultReason" name="defaultReason" style="width: 100%;"
+                                                class="form-control fs-5 text-lg">
+                                                <option value="">Select Reason</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="defaultReasonOtherContainer"
+                                        class="col-lg-12 col-md-12 col-sm-12 mb-3 d-none">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Please specify:</label>
+                                            <textarea id="defaultReasonOther" name="defaultReasonOther"
+                                                class="form-control fs-5 text-lg" rows="3"
+                                                placeholder="Explain the default reason..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-navigation">
+                                    <button type="button" class="btn btn-secondary btn-lg fs-5" onclick="prevStep(3)"><i
+                                            class="fas fa-arrow-left"></i> Previous</button>
+                                    <button type="button" class="btn btn-primary btn-lg fs-5 float-right" onclick="nextStep(3)">Next
+                                        <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+
+
+                            <!-- Step 4: Willingness to Pay -->
+                            <div id="step4" class="step d-none">
+                                <h4 class="mb-4 fs-4 fw-semibold">Willingness to Pay</h4>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Is the client willing to pay?</label>
+                                            <div class="form-check mt-2">
+                                                <input class="form-check-input" type="radio" id="willingYes"
+                                                    name="willingToPay" value="yes" required>
+                                                <label class="form-check-label fs-5 text-lg ml-2" for="willingYes">Yes</label>
+                                            </div>
+                                            <div class="form-check mt-2">
+                                                <input class="form-check-input" type="radio" id="willingNo"
+                                                    name="willingToPay" value="no" required>
+                                                <label class="form-check-label fs-5 text-lg  ml-2" for="willingNo">No</label>
+                                            </div>
+                                            <div class="form-check mt-2">
+                                                <input class="form-check-input" type="radio" id="willingNotSure"
+                                                    name="willingToPay" value="not_sure" required>
+                                                <label class="form-check-label fs-5 text-lg  ml-2" for="willingNotSure">Not Sure</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-navigation">
+                                    <button type="button" class="btn btn-secondary btn-lg fs-5" onclick="prevStep(4)"><i
+                                            class="fas fa-arrow-left"></i> Previous</button>
+                                    <button type="button" class="btn btn-primary btn-lg fs-5 float-right" onclick="nextStep(4)">Next
+                                        <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+
+
+                            <!-- Step 5: Payment Promise (Willing to Pay) -->
+                            <div id="step5" class="step d-none">
+                                <h4 class="mb-4 fs-4 fw-semibold">Payment Commitment</h4>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">When will they pay?</label>
+                                            <select id="paymentWhen" name="paymentWhen" style="width: 100%;"
+                                                class="form-control fs-5 text-lg">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="customDateContainer" class="col-lg-12 col-md-12 col-sm-12 mb-3 d-none">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Custom Payment Date:</label>
+                                            <div class="input-group date" id="customPaymentDatePicker"
+                                                data-target-input="nearest">
+                                                <input type="text" id="customPaymentDate"
+                                                    class="form-control datetimepicker-input fs-5 text-lg"
+                                                    data-target="#customPaymentDatePicker" />
+                                                <div class="input-group-append" data-target="#customPaymentDatePicker"
+                                                    data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Amount Promised:</label>
+                                            <div class="input-group">
+                                                <input id="amountPromised" type="number" name="amountPromised"
+                                                    class="form-control fs-5 text-lg" placeholder="0.00" step="0.01" min="0">
+                                                <div class="input-group-append">
+                                                    <div class="input-group-text">MWK</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-navigation">
+                                    <button type="button" class="btn btn-secondary btn-lg fs-5" onclick="prevStep(5)"><i
+                                            class="fas fa-arrow-left"></i> Previous</button>
+                                    <button type="button" class="btn btn-primary btn-lg fs-5 float-right" onclick="nextStep(5)">Next
+                                        <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Step 6: Refusal to Pay -->
+                            <div id="step6" class="step d-none">
+                                <h4 class="mb-4 fs-4 fw-semibold">Refusal to Pay</h4>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Why is the client refusing to pay?</label>
+                                            <select id="refusalReason" name="refusalReason" style="width: 100%;"
+                                                class="form-control fs-5 text-lg">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="refusalReasonOtherContainer"
+                                        class="col-lg-12 col-md-12 col-sm-12 mb-3 d-none">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Please specify:</label>
+                                            <textarea id="refusalReasonOther" name="refusalReasonOther"
+                                                class="form-control fs-5 text-lg" rows="3"
+                                                placeholder="Explain the refusal reason..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-navigation">
+                                    <button type="button" class="btn btn-secondary btn-lg fs-5" onclick="prevStep(6)"><i
+                                            class="fas fa-arrow-left"></i> Previous</button>
+                                    <button type="button" class="btn btn-primary btn-lg fs-5 float-right" onclick="nextStep(6)">Next
+                                        <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Step 7: Uncertain Assessment -->
+                            <div id="step7" class="step d-none">
+                                <h4 class="mb-4 fs-4 fw-semibold">Collector Assessment</h4>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">What is your assessment?</label>
+                                            <select id="collectorAssessment" name="collectorAssessment"
+                                                style="width: 100%;" class="form-control fs-5 text-lg">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-navigation">
+                                    <button type="button" class="btn btn-secondary btn-lg fs-5" onclick="prevStep(7)"><i
+                                            class="fas fa-arrow-left"></i> Previous</button>
+                                    <button type="button" class="btn btn-primary btn-lg fs-5 float-right" onclick="nextStep(7)">Next
+                                        <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Step 8: Payment Made -->
+                            <div id="step8" class="step d-none">
+                                <h4 class="mb-4 fs-4 fw-semibold">Payment During This Visit</h4>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Was any payment made during this visit/call?</label>
+                                            <div class="form-check mt-2">
+                                                <input class="form-check-input" type="radio" id="paymentMadeYes"
+                                                    name="paymentMade" value="yes" required>
+                                                <label class="form-check-label fs-5 text-lg ml-2" for="paymentMadeYes">Yes</label>
+                                            </div>
+                                            <div class="form-check mt-2">
+                                                <input class="form-check-input" type="radio" id="paymentMadeNo"
+                                                    name="paymentMade" value="no" required>
+                                                <label class="form-check-label fs-5 text-lg ml-2" for="paymentMadeNo">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="paymentDetailsContainer" class="col-lg-12 col-md-12 col-sm-12 d-none">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                                <div class="form-group">
+                                                    <label class="fs-5 fw-semibold text-lg">Amount Paid:</label>
+                                                    <div class="input-group">
+                                                        <input id="amountPaid" type="number" name="amountPaid"
+                                                            class="form-control fs-5 text-lg" placeholder="0.00" step="0.01" min="0">
+                                                        <div class="input-group-append">
+                                                            <div class="input-group-text">MWK</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                                <div class="form-group">
+                                                    <label class="fs-5 fw-semibold text-lg">Payment Method:</label>
+                                                    <select id="paymentMethod" name="paymentMethod" style="width: 100%;"
+                                                        class="form-control fs-5 text-lg">
+                                                        <option value="">Select Payment Method</option>
+                                                        <option value="cash">Cash</option>
+                                                        <option value="airtel_money">Airtel Money</option>
+                                                        <option value="tnm_mpamba">TNM Mpamba</option>
+                                                        <option value="bank">Bank</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-navigation">
+                                    <button type="button" class="btn btn-secondary btn-lg fs-5" onclick="prevStep(8)"><i
+                                            class="fas fa-arrow-left"></i> Previous</button>
+                                    <button type="button" class="btn btn-primary btn-lg fs-5 float-right" onclick="nextStep(8)">Next
+                                        <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+
+
+                            <!-- Step 9: Risk Assessment -->
+                            <div id="step9" class="step d-none">
+                                <h4 class="mb-4 fs-4 fw-semibold">Risk Assessment</h4>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Client Situation Now:</label>
+                                            <select id="clientRiskStatus" name="clientRiskStatus" style="width: 100%;"
+                                                class="form-control fs-5 text-lg">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-navigation">
+                                    <button type="button" class="btn btn-secondary btn-lg fs-5" onclick="prevStep(9)"><i
+                                            class="fas fa-arrow-left"></i> Previous</button>
+                                    <button type="button" class="btn btn-primary btn-lg fs-5 float-right" onclick="nextStep(9)">Next
+                                        <i class="fas fa-arrow-right"></i></button>
+                                </div>
+                            </div>
+
+
+                            <!-- Step 10: Next Action -->
+                            <div id="step10" class="step d-none">
+                                <h4 class="mb-4 fs-4 fw-semibold">Next Action</h4>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">Next Action:</label>
+                                            <select id="nextAction" name="nextAction" style="width: 100%;"
+                                                class="nextAction form-control fs-5 text-lg">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                        <div class="form-group">
+                                            <label class="fs-5 fw-semibold text-lg">General Notes:</label>
+                                            <textarea id="generalNotes" name="generalNotes" class="form-control fs-5 text-lg"
+                                                rows="4" placeholder="Collector observations and remarks..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-navigation">
+                                    <button type="button" class="btn btn-secondary btn-lg fs-5" onclick="prevStep(10)"><i
+                                            class="fas fa-arrow-left"></i> Previous</button>
+                                    <button type="button" id="submitRecoveryBtn"
+                                        class="btn btn-success btn-lg fs-5 float-right">Submit <i class="fas fa-save"></i></button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#actionType").select2();
+    $("#defaultReason").select2();
+    $("#notReachedReason").select2();
+    $(".nextAction").select2();
+    $("#collectorAssessment").select2();
+    $("#refusalReason").select2();
+    $("#paymentWhen").select2();
+    $("#clientRiskStatus").select2();
+    $("#paymentMethod").select2();
+
+    function nextStep(currentStep) {
+        // if next step is hidden skip it 
+        let next = currentStep + 1;
+
+        //Keep skipping whule the step has d-none
+        while ($(`#step${next}`).hasClass("d-none")) {
+            next++;
+
+            if ($(`#step${next}`).length === 0) return; // No more steps
+        }
+
+        $(".step").removeClass("active");
+        $(`#step${next}`).addClass("active");
+    }
+
+    function prevStep(currentStep) {
+        let prev = currentStep - 1;
+
+        // Skip hiddent steps goind back 
+        while ($(`#step${prev}`).hasClass("d-none")) {
+            prev--;
+            if (prev <= 0) return;
+        }
+
+        $(".step").removeClass("active");
+        $(`#step${prev}`).addClass("active");
+    }
+</script>
