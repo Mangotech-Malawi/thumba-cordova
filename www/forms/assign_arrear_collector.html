@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header bg-gradient-primary">
+      <h3 class="card-title font-weight-bold"> 
+        <i class="nav-icon fas fa-user-tie mr-2"></i> Assign Arrear to Collector
+      </h3>
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool btn-sm" id="arrearBackBtn" title="Go Back">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <form id="assignArrearForm">
+        <input id="arrearId" type="hidden">
+        <input id="loanId" type="hidden">
+        
+        <!-- Arrear Details Section -->
+        <div class="mb-4">
+          <h5 class="mb-4 font-weight-bold border-bottom pb-2">
+            <i class="fas fa-file-invoice-dollar text-info"></i> Arrear Information
+          </h5>
+          
+          <div class="row">
+            <!-- Left Column -->
+            <div class="col-md-6">
+              <dl class="row">
+                <dt class="col-lg-4 col-md-5 text-muted font-weight-normal">Client Name:</dt>
+                <dd class="col-lg-8 col-md-7 font-weight-bold" id="clientName">-</dd>
+
+                <dt class="col-lg-4 col-md-5 text-muted font-weight-normal">Installment #:</dt>
+                <dd class="col-lg-8 col-md-7 font-weight-bold" id="installmentNumber">-</dd>
+
+                <dt class="col-lg-4 col-md-5 text-muted font-weight-normal">Days Overdue:</dt>
+                <dd class="col-lg-8 col-md-7 font-weight-bold text-danger" id="daysOverdue">-</dd>
+                
+                <dt class="col-lg-4 col-md-5 text-muted font-weight-normal">Category:</dt>
+                <dd class="col-lg-8 col-md-7"><span id="categoryBadge" class="badge badge-secondary">-</span></dd>
+              </dl>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-md-6">
+              <dl class="row">
+                <dt class="col-lg-4 col-md-5 text-muted font-weight-normal">Client ID:</dt>
+                <dd class="col-lg-8 col-md-7 font-weight-bold" id="clientIdentifier">-</dd>
+
+                <dt class="col-lg-4 col-md-5 text-muted font-weight-normal">Amount Due:</dt>
+                <dd class="col-lg-8 col-md-7 font-weight-bold" id="installmentAmount">-</dd>
+
+                <dt class="col-lg-4 col-md-5 text-muted font-weight-normal">Total Arrears:</dt>
+                <dd class="col-lg-8 col-md-7 font-weight-bold" id="totalArrears">-</dd>
+
+                <dt class="col-lg-4 col-md-5 text-muted font-weight-normal">Status:</dt>
+                <dd class="col-lg-8 col-md-7"><span id="statusBadge" class="badge badge-secondary">-</span></dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+     
+
+        <!-- Assignment Section -->
+        <div class="mb-4">
+          <h5 class="mb-3 font-weight-bold border-bottom pb-2">
+            <i class="fas fa-tasks text-warning"></i> Assignment Details
+          </h5>
+          
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label class="font-weight-bold">Collector <span class="text-danger">*</span></label>
+                <select id="collectorId" class="form-control" required>
+                  <option value="">-- Select Collector --</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+       
+        </div>
+      </form>
+    </div>
+
+    <div class="card-footer">
+      <button type="button" class="btn btn-default" id="closeBtn">
+        <i class="fas fa-times"></i> Cancel
+      </button>
+      <button type="button" id="saveAssignmentBtn" class="btn btn-primary float-right">
+        <i class="fas fa-check"></i> Assign Collector
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#collectorId').select2({
+      minimumResultsForSearch: Infinity
+    });
+  });
+</script>

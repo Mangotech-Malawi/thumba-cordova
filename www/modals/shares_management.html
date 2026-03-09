@@ -1,0 +1,212 @@
+<div class="modal fade" id="modal-share-class">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="shareClassModalTitle" class="modal-title">Create Share Class</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="content">
+                    <form id="shareClassForm">
+                        <div class="row">
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                <div class="input-group ">
+                                    <input id="shareClassId" type="hidden" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                <div class="form-group ">
+                                    <label>Name</label>
+                                    <div class="input-group ">
+                                        <input id="name" type="text" class="form-control"
+                                            placeholder="Share class name">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-coins"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                <div class="form-group ">
+                                    <label>Code</label>
+                                    <div class="input-group ">
+                                        <input id="code" type="text" class="form-control"
+                                            placeholder="Share class code">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-coins"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                <div class="form-group ">
+                                    <label>Price Per Share</label>
+                                    <div class="input-group ">
+                                        <input id="pricePerShare" type="text" class="form-control"
+                                            placeholder="Share class code">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-coins"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <div class="input-group">
+                                        <textarea id="description" type="text" class="form-control"
+                                            placeholder="Description"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default alt-btn" data-dismiss="modal">Close</button>
+                <button type="button" id="saveShareClassBtn" class="btn btn-primary">Save</button>
+            </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal-capital-contribution">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="capitalContributionModalTitle" class="modal-title">Add Capital Contribution</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="content">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                            <div class="input-group ">
+                                <input id="capitalContributionId" type="hidden" class="form-control">
+                            </div>
+                            <input id="shareholderId" type="hidden" class="form-control">
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                            <div class="form-group ">
+                                <label>Share Class</label>
+                                <div class="select2-primary">
+                                    <select id="shareClassSelector" class="form-control"
+                                        data-placeholder="Select share class" data-dropdown-css-class="select2-primary"
+                                        style="width: 100%;">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                            <div class="form-group ">
+                                <label>Amount</label>
+                                <div class="input-group ">
+                                    <input id="amount" type="text" class="form-control"
+                                        placeholder="Contribution Amount">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-coins"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-6 col-sm-12 mb-3">
+                            <div class="form-group">
+                                <label>Contribution Date</label>
+                                <div class="input-group date" id="contributionDatePicker" data-target-input="nearest">
+                                    <input type="text" id="contributedDate" class="form-control datetimepicker-input"
+                                        data-target="#contributionDatePicker" />
+                                    <div class="input-group-append" data-target="#contributionDatePicker"
+                                        data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default alt-btn" data-dismiss="modal">Close</button>
+                <button type="button" id="saveCapitalContributionBtn" class="btn btn-primary">Save</button>
+            </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal-capital-contibuton-status">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="cbStatusTitle" class="modal-title">Confirmation</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="content">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                            <div class="input-group ">
+                                <input id="contributionId" type="hidden" class="form-control">
+                                <input id="contributionStatus" type="hidden" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                            <p id="confirmationMessage"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-danger alt-btn" data-dismiss="modal">Close</button>
+                <button type="button" id="updateCapitalContributionStatusBtn" class="btn btn-primary">Yes</button>
+            </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<script>
+    $("#shareClassSelector").select2();
+
+    $("#capitalContributionStatus").select2();
+
+    $(".date").datetimepicker({
+        format: "L",
+    });
+</script>

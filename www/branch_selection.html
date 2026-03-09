@@ -7,7 +7,11 @@
   <title>Thumba - Select Branch</title>
 
   <script>
-    if (sessionStorage.getItem("token") === null) {
+    const token = sessionStorage.getItem("token");
+    const offlineMode = sessionStorage.getItem("offline_mode") === "true";
+
+    // Redirect to login only if no token AND not in offline mode
+    if (token === null && !offlineMode) {
       window.location = "index.html";
     }
   </script>
@@ -91,7 +95,7 @@
 
           <!-- Branch selection card -->
           <div class="card">
-           
+
             <div class="card-body">
               <!-- Search field -->
               <div class="row mb-4">
@@ -143,7 +147,8 @@
                 </div>
                 <div>
                   <h5 class="mb-1">Need Help?</h5>
-                  <p class="mb-0">If you don't see your branch or have any issues, please contact your system administrator.</p>
+                  <p class="mb-0">If you don't see your branch or have any issues, please contact your system
+                    administrator.</p>
                 </div>
               </div>
             </div>

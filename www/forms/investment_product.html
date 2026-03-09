@@ -1,0 +1,239 @@
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header bg-gradient-primary">
+            <h3 id="formTitle" class="card-title font-weight-bold">
+                <i class="nav-icon fas fa-piggy-bank  "></i>Add Investment Product
+            </h3>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+                    <button type="button" class="btn btn-outline-light text-left" id="investmentProductBackBtn"
+                        data-client-type="individual">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="content">
+                <form id="investmentProductForm">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Package Name</label>
+                            <div class="input-group ">
+                              <input id="investmentPackageId" type="hidden" class="form-control">
+                              <input id="packageName" type="text" class="form-control" placeholder="Package Name">
+                              <div class="input-group-append">
+                                <div class="input-group-text">
+                                  <span class="fas fa-coins"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Package Type</label>
+            
+                            <div class="select2-primary">
+                              <select id="packageType" class="form-control" data-placeholder="Select package type"
+                                data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                <option value="internal">Internal</option>
+                                <option value="external">External</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Minimum Amount</label>
+                            <div class="input-group ">
+                              <input id="minAmount" type="text" class="form-control" placeholder="Minimum Amount">
+                              <div class="input-group-append">
+                                <div class="input-group-text">
+                                  <span class="fas fa-coins"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Maximum Amount</label>
+                            <div class="input-group ">
+                              <input id="maxAmount" type="text" class="form-control" placeholder="Maximum Amount">
+                              <div class="input-group-append">
+                                <div class="input-group-text">
+                                  <span class="fas fa-coins"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Interest Rate</label>
+                            <div class="input-group ">
+                              <input id="interestRate" type="text" class="form-control" placeholder="Interest Rate">
+                              <div class="input-group-append">
+                                <div class="input-group-text">
+                                  <span class="fas fa-coins"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Interest Rate Frequency</label>
+            
+                            <div class="select2-primary">
+                              <select id="interestRateFrequency" class="form-control" data-placeholder="Select rate frequency"
+                                data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                <option value="year">Annually</option>
+                                <option value="semi-annually">Semi-Annually</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="monthly">Monthly</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Compouding Frequency</label>
+                            <div class="input-group ">
+                              <input id="compoundingFrequency" type="text" class="form-control" placeholder="Compouding Frequency">
+                              <div class="input-group-append">
+                                <div class="input-group-text">
+                                  <span class="fas fa-coins"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Duration</label>
+                            <div class="input-group ">
+                              <input id="duration" type="text" class="form-control" placeholder="Duration">
+                              <div class="input-group-append">
+                                <div class="input-group-text">
+                                  <span class="fas fa-coins"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Duration Type</label>
+            
+                            <div class="select2-primary">
+                              <select id="durationType" class="form-control" data-placeholder="Select duration type"
+                                data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                <option value="annually">Annually</option>
+                                <option value="monthly">Monthly</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Currency</label>
+            
+                            <div class="select2-primary">
+                              <select id="currency" class="form-control" data-placeholder="Select package currency"
+                                data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                <option value="kwacha">Kwacha</option>
+                              </select>     
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Payout Schedule</label>
+            
+                            <div class="select2-primary">
+                              <select id="payoutSchedule" class="form-control" data-placeholder="Select Payout Schedule"
+                                data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly">Quarterly</option>
+                                <option value="semi_annually">Semi-Annually</option>
+                                <option value="annually">Annually</option>
+                                <option value="lump_sum">Lump Sum At Maturity</option>
+                                <option value="interest_only"> Interest-Only Periodic Payments</option>
+                                <option value="amortized">Armotized Payments</option>
+                                <option value="custom">Custom</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group">
+                            <label>Requirements</label>
+                            <div class="input-group">
+                              <textarea id="requirements" type="text" class="form-control" placeholder="Requirements"></textarea>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group">
+                            <label>Terms and Conditions</label>
+                            <div class="input-group">
+                              <textarea id="termsAndConditions" type="text" class="form-control" placeholder="Terms and conditions"></textarea>
+                            </div>
+                          </div>
+                        </div>
+            
+                        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                          <div class="form-group ">
+                            <label>Risk Level</label>
+            
+                            <div class="select2-primary">
+                              <select id="riskLevel" class="form-control" data-placeholder="Select risk level"
+                                data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </form>
+              </div>
+        </div>
+        <div class="card-footer">
+            <button type="button" class="btn btn-default alt-btn">Close</button>
+            <button type="button" id="saveInvestmentPackageBtn" class="btn btn-primary text-left">Save</button>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>
+<script>
+  $("#investorId").select2();
+  $("#category").select2();
+  $("#riskLevel").select2();
+  $("#packageType").select2();
+  $("#interestRateFrequency").select2();
+  $("#payoutSchedule").select2();
+  $("#durationType").select2();
+  $("#currency").select2();
+</script>
+
+
