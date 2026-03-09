@@ -1,0 +1,99 @@
+<div class="container-fluid">
+    <div class="card card-outline shadow">
+        <!-- Card Header -->
+        <div class="card-header bg-gradient-primary ">
+            <h3 id="recordName" class="card-title m-0">Group Record</h3>
+            <div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-12 text-right">
+                        <!-- Button for calling add organisation modal -->
+                        <button type="button" class="btn btn-outline-light text-left" id="downloadClientRecord">
+                            <i class="fa fa-download"></i> Download Record
+                        </button>
+                        <button type="button" class="btn btn-outline-light text-left " id="clientsBackBtn">
+                            <i class="fa fa-arrow-left"></i> Back
+                        </button>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="card card-outline">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h3 class="card-title">Client Records</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row row-cols-2 row-cols-md-4 g-2">
+                                <!-- Businesses -->
+                                <div class="col-lg-6   col-md-6  p-1">
+                                    <div id="btnMembers"
+                                        class="card card-hover shadow-sm text-center bg-warning text-dark">
+                                        <div class="card-body">
+                                            <i class="fas fa-users fa-3x mb-2"></i>
+                                            <h6>Members</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Investments -->
+                                <div class="col-lg-6  col-md-6  p-1">
+                                    <div id="btnInvestments"
+                                        class="card card-hover shadow-sm text-center bg-success text-white">
+                                        <div class="card-body">
+                                            <i class="fas fa-piggy-bank fa-3x mb-2"></i>
+                                            <h6>Investments</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Applications -->
+                                <div class="col-lg-6  col-md-6 p-1">
+                                    <div id="btnClientApplications"
+                                        class="card card-hover shadow-sm text-center bg-info text-white">
+                                        <div class="card-body">
+                                            <i class="fas fa-file-alt fa-3x mb-2"></i>
+                                            <h6>Applications</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Loans -->
+                                <div class="col-lg-6  col-md-6 p-1">
+                                    <div id="btnLoans" class="card card-hover shadow-sm text-center bg-dark text-white">
+                                        <div class="card-body">
+                                            <i class="fas fa-money-bill-wave fa-3x mb-2"></i>
+                                            <h6>Loans</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="card shadow-sm  p-3">
+                        <h5 class="text"><i class="fas fa-user"></i> Group Information</h5>
+                        <ul id="groupDetails" class="list-group ">
+                            <li class="list-group-item"><strong>Name:</strong>
+                                <span id="groupName"><span>
+                            </li>
+                            <li class="list-group-item"><strong>Category:</strong>
+                                <span id="category"><span>
+                            </li>
+                            <li class="list-group-item"><strong>Members:</strong>
+                                <span id="totalMembers"><span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div> <!-- End of Row -->
+        </div> <!-- End of Card Body -->
+    </div> <!-- End of Card -->
+</div>

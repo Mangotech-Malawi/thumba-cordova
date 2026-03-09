@@ -1,0 +1,198 @@
+<!-- Container fluid -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+
+        <!-- FILTER SECTION -->
+        <div class="card-header all-report-filter">
+          <div class="row align-items-end">
+            <!-- Start Date -->
+            <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="form-group">
+                <label>Start Date</label>
+                <div class="input-group date" id="financeReportStartDatePicker" data-target-input="nearest">
+                  <div class="input-group-prepend" data-target="#financeReportStartDatePicker"
+                    data-toggle="datetimepicker">
+                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                  </div>
+                  <input type="text" id="financeReportStartDate" class="form-control datetimepicker-input"
+                    data-target="#financeReportStartDatePicker" />
+                </div>
+              </div>
+            </div>
+
+            <!-- End Date -->
+            <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="form-group">
+                <label>End Date</label>
+                <div class="input-group date" id="financeReportEndDatePicker" data-target-input="nearest">
+                  <div class="input-group-prepend" data-target="#financeReportEndDatePicker"
+                    data-toggle="datetimepicker">
+                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                  </div>
+                  <input type="text" id="financeReportEndDate" class="form-control datetimepicker-input"
+                    data-target="#financeReportEndDatePicker" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Filter Button -->
+            <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="form-group">
+                <label class="d-none d-lg-block">&nbsp;</label>
+                <button id="financeReportFilterBtn" class="btn btn-primary btn-block">
+                  <i class="fas fa-filter"></i> Filter
+                </button>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="form-group">
+                <label class="d-none d-lg-block">&nbsp;</label>
+                <div class="dropdown">
+                  <button class="btn btn-outline-success btn-block dropdown-toggle" type="button" id="exportDropdown"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-file-export"></i> Export Report
+                  </button>
+                  <div class="dropdown-menu w-100" aria-labelledby="exportDropdown">
+                    <a class="dropdown-item" href="#" id="exportFinanceReportToPDF">
+                      <i class="fas fa-file-pdf text-danger"></i> Export to PDF
+                    </a>
+                    <a class="dropdown-item" href="#" id="exportToCSV">
+                      <i class="fas fa-file-csv text-success"></i> Export to CSV
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REPORT TABLE SECTION -->
+        <div class="card-body">
+
+          <!-- HEADER INSIDE REPORT TABLE AREA -->
+          <div class="d-flex justify-content-between align-items-center flex-wrap border rounded p-3 mb-4">
+            <!-- Left: Logo + Report Title -->
+            <div class="d-flex align-items-center mb-2 mb-md-0">
+              <img src="#" alt="Company Logo" class="me-3 account-logo" style="height: 55px; width: auto;">
+              <div>
+                <h4 class="fw-bold text-bold text-uppercase mb-0 ms-2 ml-3">Finance Report</h4>
+                <h6 id="report-company-name" class="text-muted account-name ms-2 ml-3">Company Name Here</h6>
+              </div>
+            </div>
+
+            <!-- Right: Date Range -->
+            <div class="text-end">
+              <p class="mb-1 fw-semibold text-dark">
+                <i class="far fa-calendar-alt text-orange me-2"></i>
+                <span id="financeReportDateRange">Range </span>
+              </p>
+              <small class="text-muted">Generated on: <span id="financeReportGeneratedDate"></span></small>
+            </div>
+          </div>
+
+          <!-- FINANCIAL OVERVIEW TABLE -->
+          <div id="tab">
+            <h5 class="fw-bold text-uppercase  mb-3">Financial Overview</h5>
+            <table id="finance-overview-report" name="FinanceOverview"
+              class="table table-bordered table-hover report-table">
+              <thead class="table-light">
+                <tr>
+                  <th>Category</th>
+                  <th>Definition</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Revenue & Profitability Section -->
+                <tr>
+                  <td rowspan="3" style="width: 20%">Revenue & Profitability</td>
+                  <td>Total Revenue</td>
+                  <td id="totalRevenue"></td>
+                </tr>
+                <tr>
+                  <td>Total Expenses</td>
+                  <td id="totalExpenses"></td>
+                </tr>
+                <tr>
+                  <td>Net Profit / (Loss)</td>
+                  <td id="netProfit"></td>
+                </tr>
+
+                <!-- Portfolio & Liabilities Section -->
+                <tr>
+                  <td rowspan="3">Portfolio & Liabilities</td>
+                  <td>Total Loan Portfolio</td>
+                  <td id="totalLoanPortfolio"></td>
+                </tr>
+                <tr>
+                  <td>Outstanding Liabilities</td>
+                  <td id="outstandingLiabilities"></td>
+                </tr>
+                <tr>
+                  <td>Capital Adequacy Ratio (%)</td>
+                  <td id="capitalAdequacyRatio"></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <hr class="my-4">
+
+            <!-- MONTHLY REVENUE VS EXPENSES -->
+            <h5 class="fw-bold text-uppercase  mb-3">Monthly Revenue vs Expenses</h5>
+            <table id="monthlyRevenueExpensesTable" class="table table-bordered table-hover report-table">
+              <thead class="table-light">
+                <tr>
+                  <th>Month</th>
+                  <th>Revenue</th>
+                  <th>Expenses</th>
+                  <th>Net</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+
+            <hr class="my-4">
+
+            <!-- EXPENSE BREAKDOWN -->
+            <h5 class="fw-bold text-uppercase  mb-3">Expense Breakdown by Category</h5>
+            <table id="expenseBreakdownTable" class="table table-bordered table-hover report-table">
+              <thead class="table-light">
+                <tr>
+                  <th>Category</th>
+                  <th>Total Amount</th>
+                  <th>Percentage</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $(function () {
+    // Initialize date pickers
+    $(".date").datetimepicker({ format: "DD/MMM/YYYY" });
+
+    // Show today's date
+    const today = new Date();
+    $("#financeReportGeneratedDate").text(today.toLocaleDateString("en-GB", {
+      day: "2-digit", month: "short", year: "numeric"
+    }));
+
+
+    // Set company info from session storage
+    $(".account-name").text(sessionStorage.getItem("account_name") || "Company Name Here");
+    $(".account-logo").attr("src", sessionStorage.getItem("account_logo") || "#");
+
+
+  });
+</script>

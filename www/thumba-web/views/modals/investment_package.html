@@ -1,0 +1,276 @@
+<div class="modal xxl-modal fade" id="modal-investiment-package">
+  <div class="modal-dialog modal-dialog-centered   modal-xl">
+    <div class="modal-content  xxl-modal-content">
+      <form id="investmentPackageForm" action="" method="post">
+      <div class="modal-header">
+        <h4 id="investmentPackageModalTitle" class="modal-title">Add Investment Package</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body xxl-modal-body">
+
+        <div class="content">
+          <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Package Name</label>
+                <div class="input-group ">
+                  <input id="investmentPackageId" type="hidden" class="form-control">
+                  <input id="packageName" type="text" class="form-control" placeholder="Package Name">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-coins"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Package Type</label>
+
+                <div class="select2-primary">
+                  <select id="packageType" class="form-control" data-placeholder="Select package type"
+                    data-dropdown-css-class="select2-primary" style="width: 100%;">
+                    <option value="internal">Internal</option>
+                    <option value="external">External</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Minimum Amount</label>
+                <div class="input-group ">
+                  <input id="minAmount" type="text" class="form-control" placeholder="Minimum Amount">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-coins"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Maximum Amount</label>
+                <div class="input-group ">
+                  <input id="maxAmount" type="text" class="form-control" placeholder="Maximum Amount">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-coins"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Interest Rate</label>
+                <div class="input-group ">
+                  <input id="interestRate" type="text" class="form-control" placeholder="Interest Rate">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-coins"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Interest Rate Frequency</label>
+
+                <div class="select2-primary">
+                  <select id="interestRateFrequency" class="form-control" data-placeholder="Select rate frequency"
+                    data-dropdown-css-class="select2-primary" style="width: 100%;">
+                    <option value="year">Annually</option>
+                    <option value="semi-annually">Semi-Annually</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="monthly">Monthly</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Compouding Frequency</label>
+                <div class="input-group ">
+                  <input id="compoundingFrequency" type="text" class="form-control" placeholder="Compouding Frequency">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-coins"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Duration</label>
+                <div class="input-group ">
+                  <input id="duration" type="text" class="form-control" placeholder="Duration">
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-coins"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Duration Type</label>
+
+                <div class="select2-primary">
+                  <select id="durationType" class="form-control" data-placeholder="Select duration type"
+                    data-dropdown-css-class="select2-primary" style="width: 100%;">
+                    <option value="annually">Annually</option>
+                    <option value="monthly">Monthly</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Currency</label>
+
+                <div class="select2-primary">
+                  <select id="currency" class="form-control" data-placeholder="Select package currency"
+                    data-dropdown-css-class="select2-primary" style="width: 100%;">
+                    <option value="kwacha">Kwacha</option>
+                  </select>     
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Payout Schedule</label>
+
+                <div class="select2-primary">
+                  <select id="payoutSchedule" class="form-control" data-placeholder="Select Payout Schedule"
+                    data-dropdown-css-class="select2-primary" style="width: 100%;">
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="semi_annually">Semi-Annually</option>
+                    <option value="annually">Annually</option>
+                    <option value="lump_sum">Lump Sum At Maturity</option>
+                    <option value="interest_only"> Interest-Only Periodic Payments</option>
+                    <option value="amortized">Armotized Payments</option>
+                    <option value="custom">Custom</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group">
+                <label>Requirements</label>
+                <div class="input-group">
+                  <textarea id="requirements" type="text" class="form-control" placeholder="Requirements"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group">
+                <label>Terms and Conditions</label>
+                <div class="input-group">
+                  <textarea id="termsAndConditions" type="text" class="form-control" placeholder="Terms and conditions"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+              <div class="form-group ">
+                <label>Risk Level</label>
+
+                <div class="select2-primary">
+                  <select id="riskLevel" class="form-control" data-placeholder="Select risk level"
+                    data-dropdown-css-class="select2-primary" style="width: 100%;">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default alt-btn" data-dismiss="modal">Close</button>
+        <button type="button" id="saveInvestmentPackageBtn" class="btn btn-primary">Save</button>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade " id="modal-del-income">
+  <div class="modal-dialog modal-lg ">
+    <div class="modal-content">
+      <form id="addUser" action="" method="post"></form>
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Income</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <input id="delIncomeId" type="hidden" class="form-control">
+        </div>
+
+        <div class="form-group ">
+          <label>Reason:</label>
+          <div class="input-group ">
+
+            <input id="reason" type="text" class="form-control" placeholder="Why are you deleting this income?">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-users"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" id="delIncomeBtn" class="btn btn-success">Yes</button>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<script src="js/actions/income.js" type="module"></script>
+<script>
+  $("#investorId").select2();
+  $("#category").select2();
+  $("#riskLevel").select2();
+  $("#packageType").select2();
+  $("#interestRateFrequency").select2();
+  $("#payoutSchedule").select2();
+  $("#durationType").select2();
+  $("#currency").select2();
+</script>

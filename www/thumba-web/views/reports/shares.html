@@ -1,0 +1,209 @@
+<!-- Container fluid -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+
+        <!-- FILTER SECTION -->
+        <div class="card-header all-report-filter">
+          <div class="row align-items-end">
+            <!-- Start Date -->
+            <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="form-group">
+                <label>Start Date</label>
+                <div class="input-group date" id="sharesReportStartDatePicker" data-target-input="nearest">
+                  <div class="input-group-prepend" data-target="#sharesReportStartDatePicker"
+                    data-toggle="datetimepicker">
+                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                  </div>
+                  <input type="text" id="sharesReportStartDate" class="form-control datetimepicker-input"
+                    data-target="#sharesReportStartDatePicker" />
+                </div>
+              </div>
+            </div>
+
+            <!-- End Date -->
+            <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="form-group">
+                <label>End Date</label>
+                <div class="input-group date" id="sharesReportEndDatePicker" data-target-input="nearest">
+                  <div class="input-group-prepend" data-target="#sharesReportEndDatePicker"
+                    data-toggle="datetimepicker">
+                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                  </div>
+                  <input type="text" id="sharesReportEndDate" class="form-control datetimepicker-input"
+                    data-target="#sharesReportEndDatePicker" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Filter Button -->
+            <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="form-group">
+                <label class="d-none d-lg-block">&nbsp;</label>
+                <button id="sharesReportFilterBtn" class="btn btn-primary btn-block">
+                  <i class="fas fa-filter"></i> Filter
+                </button>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-2">
+              <div class="form-group">
+                <label class="d-none d-lg-block">&nbsp;</label>
+                <div class="dropdown">
+                  <button class="btn btn-outline-success btn-block dropdown-toggle" type="button" id="exportDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-file-export"></i> Export Report
+                  </button>
+                  <div class="dropdown-menu w-100" aria-labelledby="exportDropdown">
+                    <a class="dropdown-item" href="#" id="exportSharesReportToPDF">
+                      <i class="fas fa-file-pdf text-danger"></i> Export to PDF
+                    </a>
+                    <a class="dropdown-item" href="#" id="exportToCSV">
+                      <i class="fas fa-file-csv text-success"></i> Export to CSV
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- REPORT TABLE SECTION -->
+        <div class="card-body">
+
+          <!-- HEADER INSIDE REPORT TABLE AREA -->
+          <div class="d-flex justify-content-between align-items-center flex-wrap border rounded p-3 mb-4">
+            <!-- Left: Logo + Report Title -->
+            <div class="d-flex align-items-center mb-2 mb-md-0">
+              <img src="#" alt="Company Logo" class="me-3 account-logo" style="height: 55px; width: auto;">
+              <div>
+                <h5 class="fw-bold text-uppercase mb-0 ms-2">Shares Report</h5>
+                <h6 id="report-company-name" class="text-muted account-name ms-2">Company Name Here</h6>
+              </div>
+            </div>
+
+            <!-- Right: Date Range -->
+            <div class="text-end">
+              <p class="mb-1 fw-semibold text-dark">
+                <i class="far fa-calendar-alt text-orange me-2"></i>
+                <span id="sharesReportDateRange">1 Oct 2025 - 24 Oct 2025</span>
+              </p>
+              <small class="text-muted">Generated on: <span id="sharesReportGeneratedDate"></span></small>
+            </div>
+          </div>
+
+          <!-- SHARES OVERVIEW TABLE -->
+          <div id="tab">
+            <h5 class="fw-bold text-uppercase text-primary mb-3">Share Capital Overview</h5>
+            <table id="shares-overview-report" name="SharesOverview"
+              class="table table-bordered table-hover report-table">
+              <thead class="table-light">
+                <tr>
+                  <th>Category</th>
+                  <th>Definition</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Share Capital Section -->
+                <tr>
+                  <td rowspan="4" style="width: 20%">Share Capital</td>
+                  <td>Total Share Capital</td>
+                  <td id="totalShareCapital"></td>
+                </tr>
+                <tr>
+                  <td>Accepted Contributions</td>
+                  <td id="acceptedContributions"></td>
+                </tr>
+                <tr>
+                  <td>Rejected Contributions</td>
+                  <td id="rejectedContributions"></td>
+                </tr>
+                <tr>
+                  <td>Pending Approvals</td>
+                  <td id="pendingApprovals"></td>
+                </tr>
+
+                <!-- Shareholders & Shares Section -->
+                <tr>
+                  <td rowspan="4">Shareholders & Shares</td>
+                  <td>Total Shareholders</td>
+                  <td id="totalShareholders"></td>
+                </tr>
+                <tr>
+                  <td>Total Shares Issued</td>
+                  <td id="totalSharesIssued"></td>
+                </tr>
+                <tr>
+                  <td>Total Share Classes</td>
+                  <td id="totalShareClass"></td>
+                </tr>
+                <tr>
+                  <td>Capitalization Rate (%)</td>
+                  <td id="capitalizationRate"></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <hr class="my-4">
+
+            <!-- SHARE CAPITAL BY CLASS -->
+            <h5 class="fw-bold text-uppercase text-success mb-3">Share Capital by Class</h5>
+            <table id="shareCapitalByClassTable" class="table table-bordered table-hover report-table">
+              <thead class="table-light">
+                <tr>
+                  <th>Share Class ID</th>
+                  <th>Share Class Name</th>
+                  <th>Capital</th>
+                  <th>Percentage</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+
+            <hr class="my-4">
+
+            <!-- SHAREHOLDERS BY CLASS -->
+            <h5 class="fw-bold text-uppercase text-warning mb-3">Shareholders by Share Class</h5>
+            <table id="shareholdersByClassTable" class="table table-bordered table-hover report-table">
+              <thead class="table-light">
+                <tr>
+                  <th>Share Class ID</th>
+                  <th>Share Class Name</th>
+                  <th>Number of Shareholders</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $(function () {
+    // Initialize date pickers
+    $(".date").datetimepicker({ format: "DD/MMM/YYYY" });
+
+    // Show today's date
+    const today = new Date();
+    $("#sharesReportGeneratedDate").text(today.toLocaleDateString("en-GB", {
+      day: "2-digit", month: "short", year: "numeric"
+    }));
+
+
+    // Set company info from session storage
+    $(".account-name").text(sessionStorage.getItem("account_name") || "Company Name Here");
+    $(".account-logo").attr("src", sessionStorage.getItem("account_logo") || "#");
+
+
+  });
+</script>
+</body>
+
+</html>
