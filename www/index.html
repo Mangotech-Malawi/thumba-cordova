@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thumba Login</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="dist/css/login.css">
+
+    <style>
+        /* keep minimal styles only for layout */
+        body {
+            background: #424553;
+        }
+
+        /* promo panel: background image covers, plus a semi-opaque overlay so text pops */
+        .promo-panel {
+            position: relative;
+            background-image: url("dist/img/login-bg.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* dark overlay to reduce brightness without adding extra CSS files */
+        .promo-panel::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55));
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* ensure content sits above the overlay */
+        .promo-panel .text-center {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .promo-panel img {
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .promo-panel h1 {
+            color: #fff;
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            word-spacing: 0.1em;
+        }
+
+        .promo-panel p.lead {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.4rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 8px rgba(114, 114, 114, 0.5);
+            margin-top: 1.5rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-box {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* ensure proper alignment on all screen sizes */
+        @media (max-width: 768px) {
+            .promo-panel h1 {
+                font-size: 2.5rem;
+                margin-top: 1.5rem;
+            }
+
+            .promo-panel p.lead {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid vh-100">
+        <div class="row h-100">
+
+            <!-- Left promo panel (hidden on small screens) -->
+            <div class="col-md-6 d-none d-md-flex promo-panel justify-content-center align-items-center">
+                <div class="text-center px-4">
+                    <img src="dist/img/thumba_logo_white.png" alt="Thumba" class="img-fluid mb-2"
+                        style="max-width:260px;">
+                    <h1 class="display-4 font-weight-bold">Digital Microfinance Solution</h1>
+                    <p class="lead text-white">Modern, secure and scalable lending platform</p>
+                </div>
+            </div>
+
+            <!-- Login column -->
+            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                <div class="login-box w-100" style="max-width:420px;">
+                    <div class="card">
+                        <div class="card-body login-card-body">
+                            <h2 class="login-box-msg">
+                                <b><!--<img src="dist/img/thumba.png" style="width: 48px; height: 48px;"> -->Thumba
+                                </b>
+                            </h2>
+                            <p class="login-box-msg">Sign in to start your session here</p>
+                            <p id="invalidCredentials" class="login-box-msg text-danger"></p>
+
+                            <div class="input-group mb-4">
+                                <input id="email" type="text" name="email" class="form-control"
+                                    placeholder="Username or Email">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" style="height: 100%;"><i
+                                            class="fas fa-envelope"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="input-group mb-4">
+                                <input id="password" type="password" name="password" class="form-control"
+                                    placeholder="Password">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" style="height: 100%;">
+                                        <i id="passwordVisibility" class="fas fa-eye" style="cursor: pointer;"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-8">
+                                    <div class="icheck-primary">
+                                        <input type="checkbox" id="remember">
+                                        <label for="remember">
+                                            Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <button id="loginBtn" class="btn btn-primary btn-block">Sign In</button>
+                                </div>
+                            </div>
+
+                            <div class="social-auth-links text-center mb-3">
+                                <p>- OR -</p>
+                                <a href="forgot_password.html" class="btn btn-block btn-warning">
+                                    <i class="fab mr-2"></i> I forgot my password
+                                </a>
+                                <a href="register.html" class="btn btn-block btn-success">
+                                    <i class="fab mr-2"></i> Register 
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="plugins/toastr/toastr.min.js"></script>
+    <script src="js/services/config.js" type="module"></script>
+    <script src="js/services/users.js" type="module"></script>
+    <script src="js/services/validator.js" type="module"></script>
+    <script src="js/actions/login.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+
+    </script>
+    <title>Thumba Verify OTP</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="plugins/dropzone/min/dropzone.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="dist/css/login.css">
+    <style>
+        .login-box {
+            width: 400px;
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="hold-transition  ">
+
+    <div class="login-box">
+
+        <div class="card">
+            <div class="card-body login-card-body">
+                <div class="card-header text-center">
+                    <h1 class="text-center  h2 mb-4"><img src="dist/img/thumba.png" style="width: 80px; height: 80px;"><b>Thumba</b></h1>
+                </div>
+                <div class="card-body">
+                    <p class="login-box-msg">Verify OTP ( Enter OTP Sent to your Email Address)</p>
+
+                    <div class="input-group mb-3">
+                        <input id="otpCode" type="text" class="form-control" placeholder="OTP">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-barcode"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Countdown Timer Display -->
+                    <p id="countdownText" class="text-danger font-weight-bold">OTP expires in: <span id="countdown">30</span> seconds</p>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <button id="verifyOTPBtn" class="btn btn-success btn-block">Verify OTP</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+
+                    <p class="mt-3 mb-1">
+                        <a href="forgot_password.html">Resend Email</a>
+                    </p>
+                </div>
+                <!-- /.login-card-body -->
+            </div>
+        </div>
+
+        <div class="card mt-2">
+            <div class="card-body login-card-body ">
+                <h5 class="login-box-msg">Rembered your credentials?</h5>
+                <div class="container">
+                    <a href="index.html">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <!-- /.login-box -->
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="plugins/toastr/toastr.min.js"></script>
+    <script src="plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <!-- Toastr -->
+    <script src="dist/js/modernizr.2.7.1.js"></script>
+    <script src="js/actions/user_management.js" type="module"></script>
+    <script src="js/services/users.js" type="module"></script>
+    <script src="js/services/validator.js" type="module"></script>
+    <script src="js/services/config.js" type="module"></script>
+
+</body>
+
+</html>

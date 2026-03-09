@@ -1,0 +1,386 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header bg-gradient-primary">
+      <h3 id="cardTitle" class="card-title font-weight-bold">
+        <i class="nav-icon fas fa-phone"></i> Recovery Attempt
+      </h3>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+          <button type="button" class="btn btn-outline-light text-left" id="recoveryBackBtn">
+            <i class="fa fa-arrow-left"></i> Back
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body card-theme">
+      <div class="container mt-3">
+        <div class="card card-secondary">
+          <div class="card-body">
+            <form id="recoveryAttemptForm">
+              <input id="recovery_case_id" type="hidden" class="form-control">
+              <input id="client_id" type="hidden" class="form-control">
+
+              <!-- Step 1: Initial Contact -->
+              <div id="step1" class="step active">
+                <h4 class="mb-4">Initial Contact</h4>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>Action Type:</label>
+                      <select id="actionType" name="actionType" style="width: 100%;" class="form-control" required>
+                        <option value="">Select Action Type</option>
+                        <option value="home_visit">Home Visit</option>
+                        <option value="phone_call">Phone Call</option>
+                        <option value="branch_visit">Branch Visit</option>
+                        <option value="guarantor_contact">Guarantor Contact</option>
+                        <option value="workplace_visit">Workplace Visit</option>
+                        <option value="follow_up">Follow-up Visit</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>Did you reach the client?</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" id="clientReachedYes" name="clientReached" value="yes" required>
+                        <label class="form-check-label" for="clientReachedYes">Yes</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" id="clientReachedNo" name="clientReached" value="no" required>
+                        <label class="form-check-label" for="clientReachedNo">No</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-navigation text-right">
+                  <button type="button" class="btn btn-primary" onclick="nextStep(1)">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+              </div>
+
+              <!-- Step 2: Client Not Reached -->
+              <div id="step2" class="step d-none">
+                <h4 class="mb-4">Why Client Was Not Reached</h4>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>Reason for not reaching client:</label>
+                      <select id="notReachedReason" name="notReachedReason" style="width: 100%;" class="form-control">
+                        <option value="">Select Reason</option>
+                        <option value="phone_off">Phone Off</option>
+                        <option value="number_not_reachable">Number Not Reachable</option>
+                        <option value="moved_house">Moved House</option>
+                        <option value="refused_to_meet">Refused to Meet</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div id="otherReasonContainer" class="col-lg-12 col-md-12 col-sm-12 mb-3 d-none">
+                    <div class="form-group">
+                      <label>Please specify:</label>
+                      <textarea id="otherReason" name="otherReason" class="form-control" rows="3" placeholder="Explain the reason..."></textarea>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>Next step planned:</label>
+                      <select id="nextStepPlanned" name="nextStepPlanned" style="width: 100%;" class="form-control">
+                        <option value="">Select Next Step</option>
+                        <option value="try_again_tomorrow">Try Again Tomorrow</option>
+                        <option value="visit_home">Visit Home</option>
+                        <option value="call_guarantor">Call Guarantor</option>
+                        <option value="escalate">Escalate</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>Notes:</label>
+                      <textarea id="notesClientNotReached" name="notes" class="form-control" rows="3" placeholder="Collector observations..."></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-navigation">
+                  <button type="button" class="btn btn-secondary" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Previous</button>
+                  <button type="button" id="submitRecoveryForm" class="btn btn-success float-right">Submit <i class="fas fa-save"></i></button>
+                </div>
+              </div>
+
+              <!-- Step 3: Client Reached - Default Reason -->
+              <div id="step3" class="step d-none">
+                <h4 class="mb-4">Default Reason</h4>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>Why did the client default?</label>
+                      <select id="defaultReason" name="defaultReason" style="width: 100%;" class="form-control">
+                        <option value="">Select Reason</option>
+                        <option value="loss_of_employment">Loss of Employment</option>
+                        <option value="business_down">Business Down</option>
+                        <option value="cash_flow_problems">Cash Flow Problems</option>
+                        <option value="medical_expenses">Medical Expenses</option>
+                        <option value="family_problems">Family Problems</option>
+                        <option value="multiple_loans">Multiple Loans</option>
+                        <option value="seasonal_income">Seasonal Income</option>
+                        <option value="death">Death</option>
+                        <option value="migration">Migration/Relocation</option>
+                        <option value="refusal_to_pay">Refusal To Pay</option>
+                        <option value="unknown">Unknown</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div id="defaultReasonOtherContainer" class="col-lg-12 col-md-12 col-sm-12 mb-3 d-none">
+                    <div class="form-group">
+                      <label>Please specify:</label>
+                      <textarea id="defaultReasonOther" name="defaultReasonOther" class="form-control" rows="3" placeholder="Explain the default reason..."></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-navigation">
+                  <button type="button" class="btn btn-secondary" onclick="prevStep(3)"><i class="fas fa-arrow-left"></i> Previous</button>
+                  <button type="button" class="btn btn-primary float-right" onclick="nextStep(3)">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+              </div>
+
+              <!-- Step 4: Willingness to Pay -->
+              <div id="step4" class="step d-none">
+                <h4 class="mb-4">Willingness to Pay</h4>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>Is the client willing to pay?</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" id="willingYes" name="willingToPay" value="yes" required>
+                        <label class="form-check-label" for="willingYes">Yes</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" id="willingNo" name="willingToPay" value="no" required>
+                        <label class="form-check-label" for="willingNo">No</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" id="willingNotSure" name="willingToPay" value="not_sure" required>
+                        <label class="form-check-label" for="willingNotSure">Not Sure</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-navigation">
+                  <button type="button" class="btn btn-secondary" onclick="prevStep(4)"><i class="fas fa-arrow-left"></i> Previous</button>
+                  <button type="button" class="btn btn-primary float-right" onclick="nextStep(4)">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+              </div>
+
+              <!-- Step 5: Payment Promise (Willing to Pay) -->
+              <div id="step5" class="step d-none">
+                <h4 class="mb-4">Payment Commitment</h4>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>When will they pay?</label>
+                      <select id="paymentWhen" name="paymentWhen" style="width: 100%;" class="form-control">
+                        <option value="">Select Timeline</option>
+                        <option value="today">Today</option>
+                        <option value="this_week">This Week</option>
+                        <option value="this_month">This Month</option>
+                        <option value="custom">Custom Date</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div id="customDateContainer" class="col-lg-12 col-md-12 col-sm-12 mb-3 d-none">
+                    <div class="form-group">
+                      <label>Custom Payment Date:</label>
+                      <div class="input-group date" id="customPaymentDatePicker" data-target-input="nearest">
+                        <input type="text" id="customPaymentDate" class="form-control datetimepicker-input" data-target="#customPaymentDatePicker" />
+                        <div class="input-group-append" data-target="#customPaymentDatePicker" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>Amount Promised:</label>
+                      <div class="input-group">
+                        <input id="amountPromised" type="number" name="amountPromised" class="form-control" placeholder="0.00" step="0.01" min="0">
+                        <div class="input-group-append">
+                          <div class="input-group-text">MWK</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-navigation">
+                  <button type="button" class="btn btn-secondary" onclick="prevStep(5)"><i class="fas fa-arrow-left"></i> Previous</button>
+                  <button type="button" class="btn btn-primary float-right" onclick="nextStep(5)">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+              </div>
+
+              <!-- Step 6: Refusal to Pay -->
+              <div id="step6" class="step d-none">
+                <h4 class="mb-4">Refusal to Pay</h4>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>Why is the client refusing to pay?</label>
+                      <select id="refusalReason" name="refusalReason" style="width: 100%;" class="form-control">
+                        <option value="">Select Reason</option>
+                        <option value="no_income">No Income</option>
+                        <option value="business_collapsed">Business Collapsed</option>
+                        <option value="dispute">Dispute with Institution</option>
+                        <option value="already_paid">Claims Already Paid</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div id="refusalReasonOtherContainer" class="col-lg-12 col-md-12 col-sm-12 mb-3 d-none">
+                    <div class="form-group">
+                      <label>Please specify:</label>
+                      <textarea id="refusalReasonOther" name="refusalReasonOther" class="form-control" rows="3" placeholder="Explain the refusal reason..."></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-navigation">
+                  <button type="button" class="btn btn-secondary" onclick="prevStep(6)"><i class="fas fa-arrow-left"></i> Previous</button>
+                  <button type="button" class="btn btn-primary float-right" onclick="nextStep(6)">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+              </div>
+
+              <!-- Step 7: Uncertain Assessment -->
+              <div id="step7" class="step d-none">
+                <h4 class="mb-4">Collector Assessment</h4>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>What is your assessment?</label>
+                      <select id="collectorAssessment" name="collectorAssessment" style="width: 100%;" class="form-control">
+                        <option value="">Select Assessment</option>
+                        <option value="likely_to_pay">Likely to Pay</option>
+                        <option value="difficult_client">Difficult Client</option>
+                        <option value="avoiding_deliberately">Avoiding Deliberately</option>
+                        <option value="needs_restructuring">Needs Restructuring</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-navigation">
+                  <button type="button" class="btn btn-secondary" onclick="prevStep(7)"><i class="fas fa-arrow-left"></i> Previous</button>
+                  <button type="button" class="btn btn-primary float-right" onclick="nextStep(7)">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+              </div>
+
+              <!-- Step 8: Payment Made -->
+              <div id="step8" class="step d-none">
+                <h4 class="mb-4">Payment During This Visit</h4>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>Was any payment made during this visit/call?</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" id="paymentMadeYes" name="paymentMade" value="yes" required>
+                        <label class="form-check-label" for="paymentMadeYes">Yes</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" id="paymentMadeNo" name="paymentMade" value="no" required>
+                        <label class="form-check-label" for="paymentMadeNo">No</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="paymentDetailsContainer" class="col-lg-12 col-md-12 col-sm-12 d-none">
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                        <div class="form-group">
+                          <label>Amount Paid:</label>
+                          <div class="input-group">
+                            <input id="amountPaid" type="number" name="amountPaid" class="form-control" placeholder="0.00" step="0.01" min="0">
+                            <div class="input-group-append">
+                              <div class="input-group-text">MWK</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                        <div class="form-group">
+                          <label>Payment Method:</label>
+                          <select id="paymentMethod" name="paymentMethod" style="width: 100%;" class="form-control">
+                            <option value="">Select Payment Method</option>
+                            <option value="cash">Cash</option>
+                            <option value="airtel_money">Airtel Money</option>
+                            <option value="tnm_mpamba">TNM Mpamba</option>
+                            <option value="bank">Bank</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-navigation">
+                  <button type="button" class="btn btn-secondary" onclick="prevStep(8)"><i class="fas fa-arrow-left"></i> Previous</button>
+                  <button type="button" class="btn btn-primary float-right" onclick="nextStep(8)">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+              </div>
+
+              <!-- Step 9: Risk Assessment -->
+              <div id="step9" class="step d-none">
+                <h4 class="mb-4">Risk Assessment</h4>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>Client Situation Now:</label>
+                      <select id="clientRiskStatus" name="clientRiskStatus" style="width: 100%;" class="form-control">
+                        <option value="">Select Status</option>
+                        <option value="stable">Stable</option>
+                        <option value="struggling">Struggling</option>
+                        <option value="critical">Critical</option>
+                        <option value="unknown">Unknown</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-navigation">
+                  <button type="button" class="btn btn-secondary" onclick="prevStep(9)"><i class="fas fa-arrow-left"></i> Previous</button>
+                  <button type="button" class="btn btn-primary float-right" onclick="nextStep(9)">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
+              </div>
+
+              <!-- Step 10: Next Action -->
+              <div id="step10" class="step d-none">
+                <h4 class="mb-4">Next Action</h4>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>Next Action:</label>
+                      <select id="nextAction" name="nextAction" style="width: 100%;" class="form-control">
+                        <option value="">Select Next Action</option>
+                        <option value="follow_up_call">Follow-up Call</option>
+                        <option value="another_home_visit">Another Home Visit</option>
+                        <option value="bring_to_branch">Bring to Branch</option>
+                        <option value="escalate_supervisor">Escalate to Supervisor</option>
+                        <option value="legal_warning">Send Legal Warning</option>
+                        <option value="restructure_discussion">Restructure Loan Discussion</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                    <div class="form-group">
+                      <label>General Notes:</label>
+                      <textarea id="generalNotes" name="generalNotes" class="form-control" rows="4" placeholder="Collector observations and remarks..."></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-navigation">
+                  <button type="button" class="btn btn-secondary" onclick="prevStep(10)"><i class="fas fa-arrow-left"></i> Previous</button>
+                  <button type="button" id="submitRecoveryBtn" class="btn btn-success float-right">Submit <i class="fas fa-save"></i></button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+</script>

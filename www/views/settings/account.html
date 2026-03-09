@@ -1,0 +1,106 @@
+<div class="container-fluid py-4">
+    <!-- Account Details Card -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-gradient-primary">
+            <h3 class="card-title mb-0">Account Details</h3>
+        </div>
+        <div class="card-body">
+            <form id="accountSettingsForm">
+                <div class="mb-3">
+                    <label for="accountName" class="form-label">Company Name</label>
+                    <input type="text" id="accountName" class="form-control" placeholder="Enter your company name">
+                </div>
+                <div class="mb-3">
+                    <label for="accountAddress" class="form-label">Address</label>
+                    <input type="text" id="accountAddress" class="form-control" placeholder="Enter your address">
+                </div>
+                <div class="mb-3">
+                    <label for="accountEmail" class="form-label">Email</label>
+                    <input type="email" id="accountEmail" class="form-control" placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label for="accountPhoneNumber" class="form-label">Phone Number</label>
+                    <input type="text" id="accountPhoneNumber" class="form-control"
+                        placeholder="Enter your phone number">
+                </div>
+                <button id="accountSettingsBtn" type="button" class="btn btn-primary">Save Settings</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Logo Upload Card -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+            <h3 class="card-title mb-0">Company Logo</h3>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <input type="file" id="logoUpload" class="form-control mb-2" accept="image/*">
+                <button type="button" id="uploadLogoButton" class="btn btn-success">Upload Logo</button>
+                <img id="logoPreview" src="#" alt="Logo Preview"
+                    style="width: 150px; height: 150px; object-fit: cover; margin-top: 15px; display: none; border-radius: 8px; border: 2px solid #dee2e6;">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const paletteCards = document.querySelectorAll('.palette-card');
+        const preview = document.querySelector('#preview');
+
+        // Handle palette selection
+        paletteCards.forEach(card => {
+            card.addEventListener('click', function () {
+                // Remove selected class from all cards
+                paletteCards.forEach(c => c.classList.remove('selected'));
+
+                // Add selected class to clicked card
+                this.classList.add('selected');
+
+                // Get color values
+                const primary = this.dataset.primary;
+                const secondary = this.dataset.secondary;
+                const accent = this.dataset.accent;
+                const text = this.dataset.text;
+
+                // Update CSS variables
+                document.documentElement.style.setProperty('--primary', primary);
+                document.documentElement.style.setProperty('--secondary', secondary);
+                document.documentElement.style.setProperty('--accent', accent);
+                document.documentElement.style.setProperty('--text', text);
+
+                // Update preview
+                updatePreview();
+            });
+        });
+
+        function updatePreview() {
+            const headerEl = preview.querySelector('.preview-header');
+            const footerEl = preview.querySelector('.preview-footer');
+
+            if (headerEl && footerEl) {
+                // Force update of preview elements
+                headerEl.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--primary');
+                headerEl.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text');
+
+                footerEl.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+                footerEl.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text');
+            }
+        }
+
+
+
+        // Reset palette button
+        document.getElementById('resetPaletteBtn').addEventListener('click', function () {
+            // Reset to first palette (Black & White)
+            paletteCards.forEach(c => c.classList.remove('selected'));
+            paletteCards[0].classList.add('selected');
+            paletteCards[0].click();
+        });
+
+        // Initialize with default preview
+        updatePreview();
+    });
+</script>
