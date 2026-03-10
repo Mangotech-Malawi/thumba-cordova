@@ -22,5 +22,24 @@
       "android",
       "electron"
     ]
+  },
+  "build": {
+    "appId": "com.thumba.app",
+    "productName": "Thumba",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    }
   }
 }
