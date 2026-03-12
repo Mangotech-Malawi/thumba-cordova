@@ -37,7 +37,7 @@ $(function () {
 
     // Auto-load from localStorage (in case Alpine sets it)
     const firstTabId = localStorage.getItem("dashboard_first_tab");
-    if (firstTabId && tabLoaders[firstTabId] && localStorage.getItem("state") === "dashboard") {
+    if (firstTabId && tabLoaders[firstTabId] && sessionStorage.getItem("state") === "dashboard") {
         tabLoaders[firstTabId]();
     }
 });

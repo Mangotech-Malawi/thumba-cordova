@@ -17,7 +17,7 @@ export function loadContent(containerId, newState, urlPath, ...args) {
       // Set localStorage based on args[0] existence
       const localStorageKey = args[0] !== undefined && args[0] !== null ? "homeState" : "state";
       if (newState !== "") {
-        localStorage.setItem(localStorageKey, newState);
+        sessionStorage.setItem(localStorageKey, newState);
       }
 
       $("#body").removeClass("sidebar-open");

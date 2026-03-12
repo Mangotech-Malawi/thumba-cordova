@@ -24,12 +24,12 @@ let privileges = sessionStorage.getItem("privileges");
 const mainContent = "mainContent";
 const modalContent = "modalContent";
 
-let state = localStorage.getItem("state");
+let state = sessionStorage.getItem("state");
 
 if (state == null || state == '' || typeof state == undefined) {
   selectContent("dashboard");
 } else {
-  selectContent(localStorage.getItem("state"));
+  selectContent(sessionStorage.getItem("state"));
 }
 
 

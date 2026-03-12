@@ -381,6 +381,7 @@ function getDelRolesButton(data, type, row) {
 }
 
 export function saveSessionDetails(data, password) {
+  sessionStorage.clear();
 
   token = data.token;
   sessionStorage.setItem("user_id", data.user_id)
@@ -406,17 +407,18 @@ export function saveSessionDetails(data, password) {
   localStorage.clear();
 
   if (data.role === "admin") {
-    localStorage.setItem("state", "admin_dashboard");
+    sessionStorage.setItem("state", "admin_dashboard");
   }
   else if (data.role === "investor") {
-    localStorage.setItem("state", "investor_dashboard");
+    sessionStorage.setItem("state", "investor_dashboard");
   } else if (data.role === "co-owner") {
-    localStorage.setItem("state", "admin_dashboard");
+    sessionStorage.setItem("state", "admin_dashboard");
   }
 }
 
 // ✅ NEW FUNCTION: Save session details for offline users
 function saveOfflineSessionDetails(offlineUser) {
+  sessionStorage.clear();
   sessionStorage.setItem("user_id", offlineUser.user_id);
   sessionStorage.setItem("username", offlineUser.username);
   sessionStorage.setItem("email", offlineUser.email);
@@ -429,7 +431,7 @@ function saveOfflineSessionDetails(offlineUser) {
   sessionStorage.setItem("offline_mode", "true");
 
   localStorage.clear();
-  localStorage.setItem("state", "debt_collector_dashboard");
+  sessionStorage.setItem("state", "debt_collector_dashboard");
 }
 
 export function loadIdentifierTypes() {
