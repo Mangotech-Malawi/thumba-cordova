@@ -25,10 +25,35 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+
+        .card {
+            border-radius: 20px !important;
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .card-body {
+            border-radius: 20px;
+        }
+
+        #identifierType {
+            height: 45px !important;
+            padding: 0.75rem !important;
+        }
+
+        .select2-container--default .select2-selection--single {
+            height: 45px;
+            padding: 0.5rem 0;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            padding: 0.5rem 1rem;
+            line-height: 1.8;
+        }
     </style>
 </head>
 
-<body  class="hold-transition ">
+<body class="hold-transition ">
 
     <div class="login-box">
 
@@ -39,10 +64,11 @@
 
                 <form id="registrationForm">
 
-                  
+
 
                     <div id="registration-container">
-                       <h1 class="text-center h2 mb-1 text-dark"><img src="dist/img/thumba.png" style="width: 80px; height: 80px;"><b> Thumba</b></h1>
+                        <h1 class="text-center h2 mb-1 text-dark"><!--<img src="dist/img/thumba.png"
+                                style="width: 80px; height: 80px;">--><b> Thumba</b></h1>
                         <p class="login-box-msg">Register your company and custodian details to get started with Thumba.
                         </p>
 
@@ -103,7 +129,7 @@
                             </div>
 
 
-                            <button type="button" class="btn btn-block btn-secondary " id="nextStep1">Next</button>
+                            <button type="button" class="btn btn-block btn-success" id="nextStep1">Next</button>
                         </div>
 
                         <!-- Step 2: Custodian Details -->
@@ -126,12 +152,10 @@
                             </div>
 
                             <div class="input-group mb-2">
-                                <label for="identifierType" class="form-label">Identification Type</label>
                                 <select id="identifierType" style="width: 100%;" class="form-control"
                                     placeholder="Identification Type" required>
                                     <!-- Add options here -->
                                 </select>
-
                             </div>
 
                             <div class="input-group mb-2">
@@ -218,7 +242,7 @@
             <div class="card-body login-card-body ">
                 <h5 class="login-box-msg">Have an account?</h5>
                 <div class="container">
-                    <a href="index.html">Login</a>
+                    <a href="index.html"><u>Sign In</u></a>
                 </div>
             </div>
         </div>

@@ -40,6 +40,16 @@
             width: 400px;
             transition: transform 0.3s ease-in-out;
         }
+
+        .card {
+            border-radius: 15px !important;
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .card-body {
+            border-radius: 15px;
+        }
     </style>
 </head>
 
@@ -50,7 +60,8 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <div class="card-header text-center">
-                    <h1 class="text-center  h2 mb-4"><img src="dist/img/thumba.png" style="width: 80px; height: 80px;"><b>Thumba</b></h1>
+                    <h1 class="text-center  h2 mb-4"><img src="dist/img/thumba.png"
+                            style="width: 80px; height: 80px;"><b>Thumba</b></h1>
                 </div>
                 <div class="card-body">
                     <p class="login-box-msg">Verify OTP ( Enter OTP Sent to your Email Address)</p>
@@ -65,7 +76,8 @@
                     </div>
 
                     <!-- Countdown Timer Display -->
-                    <p id="countdownText" class="text-danger font-weight-bold">OTP expires in: <span id="countdown">30</span> seconds</p>
+                    <p id="countdownText" class="text-danger font-weight-bold">OTP expires in: <span
+                            id="countdown">30</span> seconds</p>
 
                     <div class="row">
                         <div class="col-12">
@@ -92,7 +104,7 @@
         </div>
     </div>
 
-    
+
 
 
     <!-- /.login-box -->
