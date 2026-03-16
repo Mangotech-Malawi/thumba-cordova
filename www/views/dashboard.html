@@ -3,31 +3,31 @@
   <ul class="nav nav-tabs" id="dashboardTabs" role="tablist">
     <template x-if="canSee('loans')">
       <li class="nav-item">
-        <a id="loan-dashboard" class="nav-link" :class="{active: activeTab === 'loans-dashboard'}"
+        <a id="loan-dashboard" class="nav-link text-secondary" :class="{active: activeTab === 'loans-dashboard'}"
           @click="setTab('loans-dashboard')" data-toggle="tab" href="#loans-dashboard" role="tab">
-          Loans Dashboard
+         <i class="fas fa-coins"></i> Loans Dashboard
         </a>
       </li>
     </template>
     <template x-if="canSee('finance')">
       <li class="nav-item">
-        <a id="finance-dashboard" class="nav-link" :class="{active: activeTab === 'finance-performance'}"
+        <a id="finance-dashboard" class="nav-link text-secondary" :class="{active: activeTab === 'finance-performance'}"
           @click="setTab('finance-performance')" data-toggle="tab" href="#finance-performance" role="tab">
-          Finance Performance
+         <i class="fas fa-hand-holding-usd"></i> Finance Performance
         </a>
       </li>
     </template>
     <template x-if="canSee('shares')">
       <li class="nav-item">
-        <a id="shares-dashboard" class="nav-link" :class="{active: activeTab === 'shares-performance'}"
+        <a id="shares-dashboard" class="nav-link text-secondary" :class="{active: activeTab === 'shares-performance'}"
           @click="setTab('shares-performance')" data-toggle="tab" href="#shares-performance" role="tab">
-          Shares Performance
+          <i class="fas fa-chart-pie"></i> Shares Performance
         </a>
       </li>
     </template>
     <template x-if="canSee('collections')">
       <li class="nav-item">
-        <a id="collections-dashboard" class="nav-link" :class="{active: activeTab === 'collections-performance'}"
+        <a id="collections-dashboard" class="nav-link text-secondary" :class="{active: activeTab === 'collections-performance'}"
           @click="setTab('collections-performance')" data-toggle="tab" href="#collections-performance" role="tab">
           Collections Performance
         </a>
@@ -35,15 +35,15 @@
     </template>
     <template x-if="canSee('admin')">
       <li class="nav-item">
-        <a id="system-adminstration-dashboard" class="nav-link" :class="{active: activeTab === 'system-admin'}"
+        <a id="system-adminstration-dashboard" class="nav-link text-secondary" :class="{active: activeTab === 'system-admin'}"
           @click="setTab('system-admin')" data-toggle="tab" href="#system-admin" role="tab">
-          System Administration
+         <i class="fas fa-server"></i> System Administration
         </a>
       </li>
     </template>
     <template x-if="canSee('system-reports')">
       <li class="nav-item">
-        <a id="system-reports-tab" class="nav-link" :class="{active: activeTab === 'system-reports'}"
+        <a id="system-reports-tab" class="nav-link text-secondary" :class="{active: activeTab === 'system-reports'}"
           @click="setTab('system-reports')" data-toggle="tab" href="#system-reports" role="tab">
           System Reports
         </a>
