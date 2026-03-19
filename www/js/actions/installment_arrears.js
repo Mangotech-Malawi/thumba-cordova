@@ -73,7 +73,9 @@ function bulkAssignParams() {
         if (rowData && rowData.loan_id) {
            installmentArrears.push({
             arrear_id: parseInt(arrearId),
-            loan_id: rowData.loan_id
+            loan_id: rowData.loan_id, 
+            branch_id: rowData.client.branch_id,
+            client_id: rowData.client.id
            });
         }
     });

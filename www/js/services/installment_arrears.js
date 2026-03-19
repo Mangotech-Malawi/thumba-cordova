@@ -65,6 +65,7 @@ function populateInstallmentArrearsTable(arrears) {
           return `
                 <button class="btn btn-sm btn-info assign-collector" 
                         data-loan-id="${row.loan_id}"
+                        data-branch-id="${row.branch_id}
                         data-client-name="${row.client.name}"
                         data-client-identifier="${row.client.identifier}"
                         data-installment-number="${row.installment.number}"
