@@ -10,13 +10,14 @@ export function fetchInstallmentArrears() {
 }
 
 function populateInstallmentArrearsTable(arrears) {
-  const table = $("#installmentArrearsTable");
-
-  if ($.fn.DataTable.isDataTable(table)) {
-    table.DataTable().clear().destroy();
-  }
-
-  table.DataTable({
+  $("#installmentArrearsTable").DataTable({
+    destroy: true,
+    responsive: true,
+    searching: true,
+    ordering: true,
+    lengthChange: true,
+    autoWidth: false,
+    info: true,
     data: arrears,
     columns: [
       {
@@ -82,7 +83,6 @@ function populateInstallmentArrearsTable(arrears) {
         }
       }
     ],
-    responsive: true,
     order: [[6, 'desc']], // Sort by days overdue descending
     columnDefs: [{
       targets: 'no-sort',
