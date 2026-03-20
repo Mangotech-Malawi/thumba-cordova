@@ -236,8 +236,8 @@ function getInvestmentPackageParams() {
     let id = $("#investmentPackageId").val();
     let package_name = $("#packageName").val();
     let package_type = $("#packageType option:selected").val();
-    let min_amount = $("#minAmount").val();
-    let max_amount = $("#maxAmount").val();
+    let min_amount = $("#minAmount").val().replace(/,/g,"");
+    let max_amount = $("#maxAmount").val().replace(/,/g,"");
     let interest_rate = $("#interestRate").val();
     let interest_rate_frequency = $("#interestRateFrequency option:selected").val();
     let duration = $("#duration").val();

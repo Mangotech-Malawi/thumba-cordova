@@ -71,7 +71,41 @@ $(function () {
     else $("#reasonForStoppingRow").addClass("d-none").slideUp();
   });
 
+  // Use delegated input event for money-input fields to handle dynamic elements
+  $(document).on('input', '.money-input', function () {
+    let input = $(this);
+    let value = input.val();
+    let cursorPos = this.selectionStart;
+    let commasBefore = (value.slice(0, cursorPos).match(/,/g) || []).length;
+    let raw = value.replace(/,/g, '');
+    // Remove all except digits and dot
+    raw = raw.replace(/[^\d.]/g, '');
+    // Only keep first dot
+    let dotIndex = raw.indexOf('.');
+    let integerPart = raw;
+    let decimalPart = '';
+    if (dotIndex !== -1) {
+      integerPart = raw.slice(0, dotIndex);
+      decimalPart = raw.slice(dotIndex + 1);
+      // Remove any additional dots from decimal part
+      decimalPart = decimalPart.replace(/\./g, '');
+    }
+    let formattedInt = integerPart ? new Intl.NumberFormat().format(integerPart) : '';
+    // Limit decimal part to 2 digits
+    if (decimalPart.length > 2) decimalPart = decimalPart.slice(0, 2);
+    let formatted = dotIndex !== -1 ? formattedInt + '.' + decimalPart : formattedInt;
+    input.val(formatted);
+    let newValue = input.val();
+    let commasAfter = (newValue.slice(0, cursorPos).match(/,/g) || []).length;
+    let newCursorPos = cursorPos + (commasAfter - commasBefore);
+    this.setSelectionRange(newCursorPos, newCursorPos);
+  });
+
+
 });
+
+
+
 
 $(document).on({
   /* ajaxStart: function () {

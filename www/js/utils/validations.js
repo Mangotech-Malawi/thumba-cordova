@@ -144,7 +144,7 @@ function validatePersonName(name) {
 
 function validateMoneyAmount(amount) {
     var amountRegex = /^\d+(\.\d{1,3})?$/;
-    return amountRegex.test(amount);
+    return amountRegex.test(amount.replace(/,/g,""));
 }
 
 
