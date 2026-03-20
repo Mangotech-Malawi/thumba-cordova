@@ -40,7 +40,8 @@ $(function () {
                 addScoreRowWithData(scoreItem.score_name_id, scoreItem.score);
               });
             } else {
-              $(loanProductForm).find(`[id = '${key}']`).val(value).trigger("change");
+              $(loanProductForm).find(`[id = '${key}']`).val(value)
+                                .trigger("input").trigger("change");
             }
           });
 
@@ -82,11 +83,11 @@ $(function () {
   $(document).on("click", "#saveInterestBtn", function () {
     const id = $("#interestId").val();
     const name = $("#name").val();
-    const max = $("#max").val();
-    const min = $("#min").val();
+    const max = $("#max").val().replace(/,/g,"");
+    const min = $("#min").val().replace(/,/g,"");
     const rate = $("#rate").val();
     const period = $("#period").val();
-    const accum_amount = $("#accumAmount").val();
+    const accum_amount = $("#accumAmount").val().replace(/,/g,"");
     const grace_period = $("#gracePeriod").val();
     const accum_days = $("#accumDays").val();
     const loan_term_type = $("#loanTermType").val();
