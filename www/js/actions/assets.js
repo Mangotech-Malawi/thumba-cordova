@@ -64,7 +64,7 @@ $(function () {
                 $("#formTitle").text("Edit Client Asset");
 
                 $.each(opener, function (key, value) {
-                    $(assetForm).find(`[id = '${key}']`).val(value);
+                    $(assetForm).find(`[id = '${key}']`).val(value).trigger("input").trigger("change");;
                 });
         });
     });
@@ -123,8 +123,8 @@ function clientAssetParams() {
     let assetName = $("#assetName").val();
     let purchaseName = $("#purchaseName").val();
     let purchaseDate = $("#purchaseDate").val();
-    let purchasePrice = $("#purchasePrice").val();
-    let marketValue = $("#marketValue").val();
+    let purchasePrice = $("#purchasePrice").val().replace(/,/g,"");;
+    let marketValue = $("#marketValue").val().replace(/,/g,"");;
     let description = $("#assetDescription").val();
 
     let params = {
