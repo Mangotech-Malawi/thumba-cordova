@@ -416,7 +416,7 @@ function showAttemptDetailsModal(attemptData) {
           </div>
           <h6 class="modal-title font-weight-bold text-dark mb-0">Recovery Attempt Details</h6>
         </div>
-        <button type="button" class="btn btn-sm btn-light ml-3" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="btn btn-light ml-3" data-dismiss="modal" aria-label="Close">
           <i class="fas fa-times fa-sm"></i>
         </button>
       </div>
@@ -424,7 +424,7 @@ function showAttemptDetailsModal(attemptData) {
       <div class="row no-gutters border-bottom bg-light">
         <div class="col-6 col-md-3 px-4 py-2 border-right">
           <div class="text-uppercase text-muted mb-1 text-nowrap" style="font-size:10px;letter-spacing:.06em;font-weight:600">Created</div>
-          <div class="small font-weight-medium text-dark text-nowrap">${fmt(new Date(attemptData.created_at).toLocaleString())}</div>
+          <div class="font-weight-medium text-dark text-nowrap">${fmt(new Date(attemptData.created_at).toLocaleString())}</div>
         </div>
         <div class="col-6 col-md-3 px-4 py-2 border-right">
           <div class="text-uppercase text-muted mb-1 text-nowrap" style="font-size:10px;letter-spacing:.06em;font-weight:600">Sync Status</div>
@@ -432,11 +432,11 @@ function showAttemptDetailsModal(attemptData) {
         </div>
         <div class="col-6 col-md-3 px-4 py-2 border-right">
           <div class="text-uppercase text-muted mb-1 text-nowrap" style="font-size:10px;letter-spacing:.06em;font-weight:600">Recovery Case ID</div>
-          <code class="small">${fmt(attemptData.recovery_case_id)}</code>
+          <code>${fmt(attemptData.recovery_case_id)}</code>
         </div>
         <div class="col-6 col-md-3 px-4 py-2">
           <div class="text-uppercase text-muted mb-1 text-nowrap" style="font-size:10px;letter-spacing:.06em;font-weight:600">Client ID</div>
-          <code class="small">${fmt(attemptData.client_id)}</code>
+          <code>${fmt(attemptData.client_id)}</code>
         </div>
       </div>
 
@@ -451,11 +451,11 @@ function showAttemptDetailsModal(attemptData) {
           <div class="card-body p-0">
             <div class="d-flex flex-column flex-md-row no-gutters">
               <div class="d-flex border-bottom border-md-bottom-0 flex-grow-1">
-                <div class="px-3 py-2 text-right border-right bg-light" style="min-width:140px"><span class="small font-weight-bold text-muted text-nowrap">Action Type</span></div>
-                <div class="px-3 py-2 flex-grow-1 border-right"><span class="small text-dark">${fmt(pick(attemptData, 'action_type_text', 'action_type_name', 'action_type_code', 'action_type'))}</span></div>
+                <div class="px-3 py-2 text-right border-right bg-light" style="min-width:140px"><span class="font-weight-bold text-muted text-nowrap">Action Type</span></div>
+                <div class="px-3 py-2 flex-grow-1 border-right"><span class="text-dark">${fmt(pick(attemptData, 'action_type_text', 'action_type_name', 'action_type_code', 'action_type'))}</span></div>
               </div>
               <div class="d-flex flex-grow-1">
-                <div class="px-3 py-2 text-right border-right bg-light" style="min-width:140px"><span class="small font-weight-bold text-muted text-nowrap">Client Reached</span></div>
+                <div class="px-3 py-2 text-right border-right bg-light" style="min-width:140px"><span class="font-weight-bold text-muted text-nowrap">Client Reached</span></div>
                 <div class="px-3 py-2 flex-grow-1">${formatBadge(pick(attemptData, 'client_reached'))}</div>
               </div>
             </div>
