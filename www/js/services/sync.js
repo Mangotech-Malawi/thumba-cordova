@@ -18,10 +18,10 @@ export async function syncOfflineData(lastSyncTime) {
     if (response && response.sync_data) {
       // Process synced data
       await processSyncData(response.sync_data);
-      
+
       // Update last sync time
       localStorage.setItem("last_sync", new Date().toISOString());
-      
+
       return {
         success: true,
         message: "Sync completed successfully",
@@ -78,10 +78,10 @@ export async function syncRecoveryAttempts() {
       { attempts: attemptsToSync }
     );
 
-    if (response && response.success) {
+    if (response.sync_data !== null && typeof response.sync_data !== undefined && response.sync_data !== "") {
       // Mark all synced attempts as synced in IndexedDB
       const syncedCount = await Promise.all(
-        unsyncedAttempts.map(attempt => 
+        unsyncedAttempts.map(attempt =>
           recoveryAttempts.markRecoveryAttemptAsSynced(attempt.id)
             .catch(err => {
               console.error(`Failed to mark attempt ${attempt.id} as synced:`, err);
@@ -126,7 +126,7 @@ async function processSyncData(syncData) {
     // Save metadata (action types, outcomes, default reasons)
     if (syncData.metadata) {
       localStorage.setItem("sync_metadata", JSON.stringify(syncData.metadata));
-      
+
       // Store all metadata in IndexedDB
       if (syncData.metadata.action_types) {
         await saveActionTypes(syncData.metadata.action_types);
