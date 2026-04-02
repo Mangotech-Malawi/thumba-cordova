@@ -94,21 +94,6 @@ $(function () {
       const attemptId = await recoveryAttempts.saveRecoveryAttemptOffline(payload);
       notify("Recovery attempt saved successfully", "success");
 
-      // Try to sync with API if online
-      if (isApiHealthy()) {
-        try {
-          const response = await collections.addRecoveryCase(payload);
-          if (response) {
-            // Mark as synced in offline storage
-            await recoveryAttempts.markRecoveryAttemptAsSynced(attemptId);
-            notify("Recovery attempt synced to server", "success");
-          }
-        } catch (error) {
-          console.warn("Could not sync to server, saved offline:", error);
-          notify("Saved offline - will sync when connection is restored", "warning");
-        }
-      }
-
       // Reset form after successful submission
       setTimeout(() => {
         // Close the modal/form
