@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Client Onboarding</title>
+</head>
+<body>
+
+  <h2 id="tenant-name">Loading...</h2>
+
+  <form id="onboarding-form">
+
+    <input
+      type="text"
+      id="first-name"
+      placeholder="First Name"
+    />
+
+    <input
+      type="text"
+      id="last-name"
+      placeholder="Last Name"
+    />
+
+    <button type="submit">
+      Save Draft
+    </button>
+
+  </form>
+
+  
+   <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="plugins/select2/js/select2.full.min.js"></script>
+  <script src="plugins/bs-stepper/js/bs-stepper.min.js"></script>
+  <script src="plugins/toastr/toastr.min.js"></script>
+  <script defer src="dist/js/modernizr.2.7.1.js"></script>
+  <script type="module" src="js/services/config.js"></script>
+  <script type="module" src="js/services/onboarding.js"></script>
+
+</body>
+</html>
