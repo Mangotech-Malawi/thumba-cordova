@@ -217,6 +217,10 @@ $(document).ready(function () {
     selectContent("scheduled_tasks");
   });
 
+   $("#public-forms").on("click", function(e){
+    selectContent("public_forms");
+  });
+
 });
 
 function loadLinks(privileges) {

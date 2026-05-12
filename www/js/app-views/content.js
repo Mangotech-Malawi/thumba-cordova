@@ -408,5 +408,11 @@ export const content_view = [
     link: "views/collections/recovery-cases.html",
     state: "recovery_cases",
     modals: ["views/modals/user.html", "views/modals/sync.html"]
+  },
+  {
+    title: "Public Forms Management",
+    link: "views/settings/public_forms.html",
+    state: "public_forms",
+    modals: ["views/modals/user.html", "views/modals/public_form.html"]
   }
 ];

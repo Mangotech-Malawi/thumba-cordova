@@ -1,0 +1,144 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header bg-gradient-primary">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="card-title">
+          Public Form Links
+        </h3>
+
+        <button
+          type="button"
+          class="btn bg-gradient-success"
+          id="newPublicFormBtn"
+          data-toggle="modal"
+          data-target="#modal-public-form-link"
+          data-action-type="add"
+        >
+          <i class="fa fa-plus-square"></i>
+          New Public Form Link
+        </button>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <table
+        id="publicFormsTable"
+        class="table table-striped table-bordered"
+      >
+
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Form Type</th>
+            <th>Token</th>
+            <th>Public Link</th>
+            <th>Status</th>
+            <th>Created At</th>
+            <th>Copy</th>
+            <th>Deactivate</th>
+          </tr>
+        </thead>
+
+        <tbody></tbody>
+
+        <tfoot>
+          <tr>
+            <th>ID</th>
+            <th>Form Type</th>
+            <th>Token</th>
+            <th>Public Link</th>
+            <th>Status</th>
+            <th>Created At</th>
+            <th>Copy</th>
+            <th>Deactivate</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ===================================== -->
+<!-- CREATE PUBLIC FORM LINK MODAL -->
+<!-- ===================================== -->
+
+<div
+  class="modal fade"
+  id="modal-public-form-link"
+  tabindex="-1"
+  role="dialog"
+>
+
+  <div class="modal-dialog" role="document">
+
+    <div class="modal-content">
+
+      <div class="modal-header bg-gradient-primary">
+
+        <h5 class="modal-title">
+          Create Public Form Link
+        </h5>
+
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+        >
+          <span>&times;</span>
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <form id="public-form-link-form">
+
+          <!-- FORM TYPE -->
+          <div class="form-group">
+
+            <label>Form Type</label>
+
+            <select
+              class="form-control"
+              id="form-type"
+            >
+              <option value="onboarding">
+                Client Onboarding
+              </option>
+
+              <option value="loan_application">
+                Loan Application
+              </option>
+            </select>
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >
+          Close
+        </button>
+
+        <button
+          type="button"
+          class="btn bg-gradient-success"
+          id="createPublicFormLinkBtn"
+        >
+          Create Link
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>

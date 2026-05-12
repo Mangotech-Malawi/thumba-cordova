@@ -1,0 +1,78 @@
+<div
+  class="modal fade"
+  id="modal-public-form-link"
+  tabindex="-1"
+  role="dialog"
+>
+
+  <div class="modal-dialog" role="document">
+
+    <div class="modal-content">
+
+      <div class="modal-header bg-gradient-primary">
+
+        <h5 class="modal-title">
+          Create Public Form Link
+        </h5>
+
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+        >
+          <span>&times;</span>
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <form id="public-form-link-form">
+
+          <!-- FORM TYPE -->
+          <div class="form-group">
+
+            <label>Form Type</label>
+
+            <select
+              class="form-control"
+              id="form-type"
+            >
+              <option value="onboarding">
+                Client Onboarding
+              </option>
+
+              <option value="loan_application">
+                Loan Application
+              </option>
+            </select>
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >
+          Close
+        </button>
+
+        <button
+          type="button"
+          class="btn bg-gradient-success"
+          id="createPublicFormLinkBtn"
+        >
+          Create Link
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
